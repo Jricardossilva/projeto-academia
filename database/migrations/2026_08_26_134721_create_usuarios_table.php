@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('cpf')->unique();
             $table->string('senha');
             $table->boolean('aceite_termos')->default(false);
+            
             $table->timestamps();
         });
     }
