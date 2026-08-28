@@ -1,7 +1,9 @@
 <?php
 
+
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\ExercicioController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     
@@ -9,4 +11,4 @@ Route::get('/', function () {
 });
 
 Route::resource('usuarios', UsuarioController::class);
-Route::resource('/exercicios',[ExercicioController::class, 'index']);
+Route::resource('exercicios', ExercicioController::class);
