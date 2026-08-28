@@ -7,4 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Usuario extends Model
 {
     protected $fillable = ['nome', 'email', 'cpf', 'senha', 'aceite_termos'];
+    protected $casts = [
+        'nome' => 'array',
+    ];
 }
