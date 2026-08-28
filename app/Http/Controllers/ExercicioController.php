@@ -9,6 +9,7 @@ class ExercicioController extends Controller
     public function index()
     {
         $exercicios = Exercicio::all();
+        
         return view('exercicios.index', compact('exercicios'));
     }
 
