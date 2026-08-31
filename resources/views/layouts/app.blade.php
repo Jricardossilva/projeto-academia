@@ -39,7 +39,7 @@
           <span class="nav-icon"><i class="bi bi-person-plus" aria-hidden="true"></i></span>
           <span class="nav-text">Exercícios</span> 
         </a>
-        <a class="nav-link" href="{{ route('fichas.index') }}">
+        <a class="nav-link" href="{{ route('fichas-esportivas.index') }}">
           <span class="nav-icon"><i class="bi bi-person-badge" aria-hidden="true"></i></span>
           <span class="nav-text">Fichas esportivas  </span>
         </a>
