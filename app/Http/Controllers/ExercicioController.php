@@ -29,4 +29,20 @@ public function store(Request $request)
     // Depois de salvar, volta pra listagem
     return redirect('/exercicios');
 }
+
+public function edit(Exercicio $exercicio)
+{
+    // O Laravel já busca o exercício certo pelo id da URL
+    return view('exercicios.edit', ['exercicio' => $exercicio]);
+}
+
+public function update(Request $request, Exercicio $exercicio)
+{
+    // Atualiza os dados do exercício com o que veio do formulário
+    $exercicio->update($request->only(['nome', 'grupo_muscular', 'descricao']));
+
+    // Volta pra listagem depois de salvar
+    return redirect('/exercicios');
+}
+
 }
