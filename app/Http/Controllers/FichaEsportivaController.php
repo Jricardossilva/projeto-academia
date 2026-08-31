@@ -8,9 +8,15 @@ class FichaEsportivaController extends Controller
 {
     public function index()
     {
-        $fichas = FichaEsportiva::all();
-        return view('fichas.index', compact('fichas'));
-    }
+        $query = FichaEsportiva::with('usuario');
+
+        if ($request->filled('nivel')) {
+            
+            $query->where('nivel_experiencia', $request->nivel);
+        }
+
+        return view('fichas-esportivas.index', ['fichas' => $query->get()]);
+    }   
 
     public function store(Request $request)
     {
