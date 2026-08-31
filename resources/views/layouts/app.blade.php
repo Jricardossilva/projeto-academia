@@ -27,21 +27,21 @@
       </div>
 
       <nav class="sidebar-nav">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ route('usuarios.index') }}">
           <span class="nav-icon"><i class="bi bi-speedometer2" aria-hidden="true"></i></span>
-          <span class="nav-text">Dashboard</span>
+          <span class="nav-text">Usuário</span>
         </a>
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ route('profissionais.index') }}">
           <span class="nav-icon"><i class="bi bi-people" aria-hidden="true"></i></span>
-          <span class="nav-text">Users</span>
+          <span class="nav-text">Profissionais</span>
         </a>
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ route('exercicios.index') }}">
           <span class="nav-icon"><i class="bi bi-person-plus" aria-hidden="true"></i></span>
-          <span class="nav-text">Add User</span>
+          <span class="nav-text">Exercícios</span> 
         </a>
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ route('fichas.index') }}">
           <span class="nav-icon"><i class="bi bi-person-badge" aria-hidden="true"></i></span>
-          <span class="nav-text">Profile</span>
+          <span class="nav-text">Fichas esportivas  </span>
         </a>
         <a class="nav-link" href="#">
           <span class="nav-icon"><i class="bi bi-bar-chart-line" aria-hidden="true"></i></span>
