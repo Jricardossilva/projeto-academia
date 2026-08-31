@@ -1,8 +1,9 @@
 <?php
 
 
-use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\UsuarioController; 
 use App\Http\Controllers\ExercicioController;
+use App\Http\Controllers\FichaEsportivaController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -12,7 +13,7 @@ Route::get('/', function () {
 
 Route::resource('usuarios', UsuarioController::class);
 Route::resource('exercicios', ExercicioController::class);
-
+Route::resource('fichas-esportivas', FichaEsportivaController::class);
 
 // Route::get('/exercicios', [ExercicioController::class, 'index'])->name('exercicios.index');
 // Route::get('/exercicios/create', [ExercicioController::class, 'create'])->name('exercicios.create');
