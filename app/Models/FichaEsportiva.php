@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use app\Models\Usuario;
 use Illuminate\Database\Eloquent\Model;
 
 class FichaEsportiva extends Model
 {
+    protected $table = 'fichas_esportivas';
+    
     protected $fillable = [
         'usuario_id', 
         'tempo_pratica', 

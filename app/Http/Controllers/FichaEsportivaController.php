@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FichaEsportiva;
 use Illuminate\Http\Request;
 
 class FichaEsportivaController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $query = FichaEsportiva::with('usuario');
 
@@ -15,7 +16,7 @@ class FichaEsportivaController extends Controller
             $query->where('nivel_experiencia', $request->nivel);
         }
 
-        return view('fichas-esportivas.index', ['fichas' => $query->get()]);
+        return view('fichas-esportivas.index', ['fichas' => $query->get() ?? []]);
     }   
 
     public function store(Request $request)
