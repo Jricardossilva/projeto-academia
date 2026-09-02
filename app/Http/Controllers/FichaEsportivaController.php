@@ -19,6 +19,11 @@ class FichaEsportivaController extends Controller
         return view('fichas-esportivas.index', ['fichas' => $query->get() ?? []]);
     }   
 
+    public function create()
+    {
+        return view('fichas-esportivas.create');
+    }
+
     public function store(Request $request)
     {
         FichaEsportiva::create($request->all());

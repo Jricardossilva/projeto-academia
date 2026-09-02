@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use app\Models\Usuario;
+use App\Models\Usuario;
 use Illuminate\Database\Eloquent\Model;
 
 class FichaEsportiva extends Model
