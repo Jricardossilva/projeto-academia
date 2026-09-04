@@ -43,21 +43,21 @@
           <span class="nav-icon"><i class="bi bi-person-badge" aria-hidden="true"></i></span>
           <span class="nav-text">Fichas esportivas  </span>
         </a>
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ route('planos.index') }}"> 
           <span class="nav-icon"><i class="bi bi-bar-chart-line" aria-hidden="true"></i></span>
-          <span class="nav-text">Charts</span>
+          <span class="nav-text">Planos</span>
         </a>
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ route('parceiros.index') }}">
           <span class="nav-icon"><i class="bi bi-table" aria-hidden="true"></i></span>
-          <span class="nav-text">Tables</span>
+          <span class="nav-text">Parceiros</span>
         </a>
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ route('matriculas.index') }}">
           <span class="nav-icon"><i class="bi bi-ui-checks-grid" aria-hidden="true"></i></span>
-          <span class="nav-text">Forms</span>
+          <span class="nav-text">Matrículas</span> 
         </a>
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ route('treinos.index') }}">
           <span class="nav-icon"><i class="bi bi-grid-3x3-gap" aria-hidden="true"></i></span>
-          <span class="nav-text">Components</span>
+          <span class="nav-text">Treinos</span>
         </a>
         <a class="nav-link" href="#">
           <span class="nav-icon"><i class="bi bi-exclamation-triangle" aria-hidden="true"></i></span>
