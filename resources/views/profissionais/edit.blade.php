@@ -13,14 +13,6 @@
       <input type="text" name="nome" class="form-control" value="{{ old('nome', $profissional->nome) }}">
     </div>
     <div class="mb-3">
-      <label class="form-label">E-mail</label>
-      <input type="email" name="email" class="form-control" value="{{ old('email', $profissional->email) }}">
-    </div>
-    <div class="mb-3">
-      <label class="form-label">CPF</label>
-      <input type="text" name="cpf" class="form-control" value="{{ old('cpf', $profissional->cpf) }}">
-    </div>
-    <div class="mb-3">
       <label class="form-label">Celular</label>
       <input type="text" name="celular" class="form-control" value="{{ old('celular', $profissional->celular) }}">
     </div>
