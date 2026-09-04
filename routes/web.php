@@ -9,6 +9,8 @@ use App\Http\Controllers\ProfissionalController;
 use App\Http\Controllers\MatriculaController;
 use App\Http\Controllers\PlanosController;
 use App\Http\Controllers\TreinoController;
+use App\Http\Controllers\ParceiroController;
+
 
 Route::get('/', function () {
     
@@ -22,6 +24,7 @@ Route::resource('fichas-esportivas', FichaEsportivaController::class);
 Route::resource('matriculas', MatriculaController::class);
 Route::resource('planos', PlanosController::class);
 Route::resource('treinos', TreinoController::class);
+Route::resource('parceiros', ParceiroController::class);
 
 // Route::get('/exercicios', [ExercicioController::class, 'index'])->name('exercicios.index');
 // Route::get('/exercicios/create', [ExercicioController::class, 'create'])->name('exercicios.create');
