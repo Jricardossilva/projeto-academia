@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('parceiros', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->string('descricao');
+            $table->string('categoria');
             $table->string('telefone');
             $table->string('email');
             $table->string('beneficio oferecido');
