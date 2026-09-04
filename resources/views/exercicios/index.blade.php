@@ -3,7 +3,10 @@
 @section('content')
 <section class="panel mt-3">
   <div class="panel-header">
-    <h2 class="h5 mb-0 section-title">Exercícios</h2>
+    <div>
+      <h2 class="h5 mb-0 section-title">Exercícios</h2>
+    </div>
+    <a class="btn btn-primary btn-sm" href="{{ route('exercicios.create') }}">Novo Exercício</a>
   </div>
   <div class="table-responsive">
     <table class="table align-middle mb-0">
