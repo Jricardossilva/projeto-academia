@@ -8,7 +8,14 @@ use App\Models\FichaEsportiva;
 class Usuario extends Model
 {
     protected $table = 'usuarios';
-    protected $fillable = ['nome', 'email', 'cpf', 'senha', 'aceite_termos'];
+
+    protected $fillable = [
+        'nome', 
+        'email', 
+        'cpf', 
+        'senha', 
+        'aceite_termos'
+    ];
     protected $casts = [
         'aceite_termos' => 'boolean',
     ];
