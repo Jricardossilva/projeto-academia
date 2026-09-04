@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Treino;
 
 class Profissional extends Model
 {
@@ -12,4 +13,10 @@ class Profissional extends Model
         'numero_registro', 'curriculo', 'especializacao',
         'localizacao', 'aceite_termos'
     ];
+
+    // Treinos prescritos por este profissional (lado inverso de Treino::profissional).
+    public function treinos()
+    {
+        return $this->hasMany(Treino::class);
+    }
 }
