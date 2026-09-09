@@ -20,7 +20,8 @@ Route::get('/', function () {
 Route::resource('usuarios', UsuarioController::class);
 Route::resource('exercicios', ExercicioController::class);
 Route::resource('profissionais', ProfissionalController::class);
-Route::resource('fichas-esportivas', FichaEsportivaController::class);
+Route::resource('fichas-esportivas', FichaEsportivaController::class)
+    ->parameters(['fichas-esportivas' => 'ficha']);
 Route::resource('matriculas', MatriculaController::class);
 Route::resource('planos', PlanosController::class);
 Route::resource('treinos', TreinoController::class);
