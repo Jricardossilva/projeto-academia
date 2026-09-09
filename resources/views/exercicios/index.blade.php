@@ -25,7 +25,8 @@
       <td>{{ $exercicio->grupo_muscular }}</td>
       <td>{{ $exercicio->descricao }}</td>
       <td class="text-end">
-        <a class="btn btn-light btn-sm" href="/exercicios/{{ $exercicio->id }}/editar">Editar</a>
+        
+        <a class="btn btn-light btn-sm" href="{{ route('exercicios.edit', $exercicio) }}">Editar</a> 
       </td>
     </tr>
   @endforeach
