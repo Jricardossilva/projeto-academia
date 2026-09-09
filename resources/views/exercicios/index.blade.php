@@ -26,6 +26,11 @@
       <td>{{ $exercicio->descricao }}</td>
       <td class="text-end">
         <a class="btn btn-light btn-sm" href="/exercicios/{{ $exercicio->id }}/editar">Editar</a>
+      <form action="{{ route('exercicios.destroy', $exercicio) }}" method="POST" class="d-inline">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-outline-secondary btn-sm" onclick="return confirm('Excluir este usuário?')">Excluir</button>
+              </form>
       </td>
     </tr>
   @endforeach
