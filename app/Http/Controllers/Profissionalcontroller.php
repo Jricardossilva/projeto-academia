@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Profissional;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\hash;
+use Illuminate\Support\Facades\Hash; 
 
 class Profissionalcontroller extends Controller
 {
@@ -23,29 +23,25 @@ class Profissionalcontroller extends Controller
     {
         $request->validate([
             'nome' => 'required|string',
-            'email' => 'required|email|unique:profissionais,email',
-            'cpf' => 'required|unique:profissionais,cpf',
-            'senha' => 'required|min:6',
             'celular' => 'required|string',
+            'curriculo' => 'required|string',
             'numero_registro' => 'required|string',
             'especializacao' => 'required|string',
-            'localizacao' => 'required|string',
+            'localizacao' => 'required|string',           
         ]);
+
         Profissional::create([
             'nome' => $request->nome,
-            'email' => $request->email,
-            'cpf' => $request->cpf,
-            'senha' => Hash::make($request->senha),
             'celular' => $request->celular,
             'numero_registro' => $request->numero_registro,
             'curriculo' => $request->curriculo,
             'especializacao' => $request->especializacao,
             'localizacao' => $request->localizacao,
-            'aceite_termos' => $request->has('aceite_termos'),
+            'aceite_termos' => $request->has('aceite_termos')
         ]);
         return redirect()->route('profissionais.index')->with('success', 'Profissional cadastrado com sucesso!');
     }
-
+        
     public function edit(Profissional $profissional)
     {
         return view('profissionais.edit', ['profissional' => $profissional]);
@@ -53,26 +49,16 @@ class Profissionalcontroller extends Controller
 
     public function update(Request $request, Profissional $profissional)
     {
-        $request->validate([
-            'nome' => 'required|string',
-            'email' => 'required|email|unique:profissionais,email,' . $profissional->id,
-            'cpf' => 'required|unique:profissionais,cpf,' . $profissional->id,
-        ]);
-
+        
         $profissional->update($request->except(['senha', '_token', '_method']));
 
         return redirect()->route('profissionais.index')->with('success', 'Profissional atualizado com sucesso!');
     }
 
-public function destroy(Profissional $profissional)
-{
-    $profissional->delete();
-    return redirect()->route('profissionais.index')->with('success', 'Profissional removido com sucesso!');
-}
-
-public function show(Profissional $profissional)
-{
-    return view('profissionais.show', ['profissional' => $profissional]);
-}
+    public function destroy(Profissional $profissional)
+    {
+        $profissional->delete();
+        return redirect()->route('profissionais.index')->with('success', 'Profissional removido com sucesso!');
+    }
 }
 

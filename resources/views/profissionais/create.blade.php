@@ -12,7 +12,7 @@
       <input type="text" name="nome" class="form-control" value="{{ old('nome') }}">
       @error('nome') <div class="text-danger small">{{ $message }}</div> @enderror
     </div>
-    </div>
+
     <div class="mb-3">
       <label class="form-label">Celular</label>
       <input type="text" name="celular" class="form-control" value="{{ old('celular') }}">
