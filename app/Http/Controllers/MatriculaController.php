@@ -9,7 +9,7 @@ class MatriculaController extends Controller
 {
     public function index()
     {
-        return view('matriculas.matricula', [
+            return view('matriculas.index', [               
             'matriculas' => Matricula::all(),
         ]);
     }
