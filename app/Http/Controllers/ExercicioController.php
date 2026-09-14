@@ -41,8 +41,19 @@ public function update(Request $request, Exercicio $exercicio)
     // Atualiza os dados do exercício com o que veio do formulário
     $exercicio->update($request->only(['nome', 'grupo_muscular', 'descricao']));
 
+    
     // Volta pra listagem depois de salvar
     return redirect('/exercicios');
+}
+
+public function destroy(Exercicio $exercicio)
+{
+    // Deleta o exercício
+    $exercicio->delete();
+
+    // Volta pra listagem depois de deletar
+    return redirect('/exercicios');
+
 }
 
 }
