@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Planos;
 
 class PlanoController extends Controller
 {
@@ -11,7 +12,7 @@ class PlanoController extends Controller
      */
     public function index()
     {
-        $planos = Plano::all();
+        $planos = Planos::all();
         return view('planos.index', ['planos' => $planos]);
     }
 
