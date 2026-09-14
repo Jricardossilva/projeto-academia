@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Parceiro;
 
 class ParceiroController extends Controller
 {
@@ -11,8 +12,8 @@ class ParceiroController extends Controller
      */
     public function index()
     {
-        $parceiros =parceiros::all();
-        return view('parceiros.index', ['parceiros' => $parceiros
+        $parceiros = Parceiro::all();
+        return view('parceiros.index', ['parceiros' => $parceiros]);
     }
 
     /**
@@ -20,7 +21,7 @@ class ParceiroController extends Controller
      */
     public function create()
     {
-        returmn view('parceiros.create');
+        return view('parceiros.create');
         
     }
 
