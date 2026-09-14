@@ -4,11 +4,12 @@
 <section class="panel mt-3">
   <div class="panel-header">
     <div>
-      <h2 class="h5 mb-1 section-title"><i class="bi bi-people" aria-hidden="true"></i><span>Clientes</span></h2>
+      <h2 class="h5 mb-1 section-title"><i class="bi bi-people" aria-hidden="true"></i><span>Matriculas</span></h2>
     </div>
-    <a class="btn btn-primary btn-sm" href="{{ route('clientes.create') }}">Novo Cliente</a>
+    <a class="btn btn-primary btn-sm" href="{{ route('matriculas.create') }}">Nova Matricula</a>
   </div>
   <div class="table-responsive">
+
     <table class="table align-middle mb-0">
       <thead>
         <tr>
@@ -16,19 +17,19 @@
             <th>Plano</th>
             <th>Data inicio</th>
             <th>Data fim</th>
-          <th class="text-end">Ações</th>
+          <th class="text-end">Ações</th> 
         </tr>
       </thead>
       <tbody>
-        @foreach ($matriculas as $matricula)
+        @foreach ($matriculas as $matriculas) 
           <tr>
-            <td>{{ $cliente->nome }}</td>
-            <td>{{ $cliente->plano }}</td>
-            <td>{{ $cliente->data_inicio }}</td>
-            <td>{{ $cliente->data_fim }}</td>
+            <td>{{ $matricula->nome }}</td>
+            <td>{{ $matricula->plano }}</td>
+            <td>{{ $matricula->data_inicio }}</td>
+            <td>{{ $matricula->data_fim }}</td>
             <td class="text-end">
-              <a class="btn btn-light btn-sm" href="{{ route('clientes.edit', $cliente) }}">Editar</a>
-              <form action="{{ route('clientes.destroy', $cliente) }}" method="POST" class="d-inline">
+              <a class="btn btn-light btn-sm" href="{{ route('matriculas.edit', $matricula) }}">Editar</a>
+              <form action="{{ route('matriculas.destroy', $matricula) }}" method="POST" class="d-inline">
                 @csrf
                 @method('DELETE')
                 <button class="btn btn-outline-secondary btn-sm" onclick="return confirm('Excluir este cliente?')">Excluir</button>
