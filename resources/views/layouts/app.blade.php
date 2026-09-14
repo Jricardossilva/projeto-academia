@@ -59,21 +59,13 @@
           <span class="nav-icon"><i class="bi bi-grid-3x3-gap" aria-hidden="true"></i></span>
           <span class="nav-text">Treinos</span>
         </a>
-        <a class="nav-link" href="#">
-          <span class="nav-icon"><i class="bi bi-exclamation-triangle" aria-hidden="true"></i></span>
-          <span class="nav-text">Alerts</span>
+        
         </a>
-        <a class="nav-link" href="#">
-          <span class="nav-icon"><i class="bi bi-window-stack" aria-hidden="true"></i></span>
-          <span class="nav-text">Modals</span>
+        
         </a>
-        <a class="nav-link" href="#">
-          <span class="nav-icon"><i class="bi bi-gear" aria-hidden="true"></i></span>
-          <span class="nav-text">Settings</span>
+        
         </a>
-        <a class="nav-link" href="#">
-          <span class="nav-icon"><i class="bi bi-file-earmark" aria-hidden="true"></i></span>
-          <span class="nav-text">Blank Page</span>
+        
         </a>
       </nav>
 
