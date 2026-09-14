@@ -24,4 +24,9 @@ class Usuario extends Model
     {
         return $this->hasOne(FichaEsportiva::class);
     }
+
+    public function matriculas()
+    {
+        return $this->hasMany(Matricula::class);
+    }
 }

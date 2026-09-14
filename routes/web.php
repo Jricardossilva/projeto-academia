@@ -22,7 +22,8 @@ Route::resource('exercicios', ExercicioController::class);
 Route::resource('profissionais', ProfissionalController::class);
 Route::resource('fichas-esportivas', FichaEsportivaController::class)
     ->parameters(['fichas-esportivas' => 'ficha']);
-Route::resource('matriculas', MatriculaController::class);
+Route::resource('matriculas', MatriculaController::class)
+    ->parameters(['matriculas' => 'matricula']);
 Route::resource('planos', PlanoController::class);
 Route::resource('treinos', TreinoController::class);
 Route::resource('parceiros', ParceiroController::class);

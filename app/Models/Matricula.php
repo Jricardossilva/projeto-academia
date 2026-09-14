@@ -15,9 +15,20 @@ class Matricula extends Model
         'data_fim', 
         'status'
     ];
+
     protected $casts = [
         'data_inicio' => 'date',
         'data_fim' => 'date',
         'status' => 'string',
-    ];  
+    ];
+    
+    public function usuario()
+    {
+        return $this->hasMany(Usuario::class);
+    }
+
+    public function plano()
+    {
+        return $this->hasOne(Planos::class);
+    }
 }
