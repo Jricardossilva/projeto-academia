@@ -9,6 +9,7 @@ use App\Models\Exercicio;
 
 class Treino extends Model
 {
+    protected $table = 'treino_exercicio';
     protected $fillable = [
         'usuario_id',
         'profissional_id',
