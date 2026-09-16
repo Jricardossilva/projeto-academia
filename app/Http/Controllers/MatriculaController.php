@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Matricula;
 use Illuminate\Http\Request;
+use App\Models\Usuario;
+use App\Models\Planos;
 
 class MatriculaController extends Controller
 {
@@ -16,7 +18,10 @@ class MatriculaController extends Controller
 
     public function create()
     {
-        return view('matriculas.create');
+        return view('matriculas.create', [
+            'usuarios' => Usuario::all(),
+            'planos' => Planos::all(),
+        ]);
     }
 
     public function store(Request $request)
@@ -34,15 +39,11 @@ class MatriculaController extends Controller
         return redirect()->route('matriculas.index');
     }
 
-    public function show(Matricula $matricula)
-    {
-        return view('matriculas.show', compact('matricula'));
-    }
-
     public function edit(Matricula $matricula)
     {
-        return view('matriculas.edit', compact('matricula'));
-    }
+        return view('matriculas.edit', [ 'usuarios' => Usuario::all() 
+        ]);
+    } 
 
     public function update(Request $request, Matricula $matricula)
     {
