@@ -10,12 +10,11 @@ use App\Http\Controllers\MatriculaController;
 use App\Http\Controllers\PlanoController;
 use App\Http\Controllers\TreinoController;
 use App\Http\Controllers\ParceiroController;
+use App\Http\Controllers\loginController;
 
 
-Route::get('/', function () {
-    
-    return view('welcome');
-});
+
+Route::get('/', [loginController::class, 'index'])->name('login.index');
 
 Route::resource('usuarios', UsuarioController::class);
 Route::resource('exercicios', ExercicioController::class);
@@ -27,6 +26,8 @@ Route::resource('matriculas', MatriculaController::class)
 Route::resource('planos', PlanoController::class);
 Route::resource('treinos', TreinoController::class);
 Route::resource('parceiros', ParceiroController::class);
+
+
 
 // Route::get('/exercicios', [ExercicioController::class, 'index'])->name('exercicios.index');
 // Route::get('/exercicios/create', [ExercicioController::class, 'create'])->name('exercicios.create');
