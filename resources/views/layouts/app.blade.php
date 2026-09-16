@@ -29,8 +29,8 @@
       <nav class="sidebar-nav">
         <a class="nav-link" href="{{ route('usuarios.index') }}">
           <span class="nav-icon">
-            <!-- <i class="bi bi-speedometer2" aria-hidden="true"></i> -->
-             <x-iconoir-gym />
+            <i class="bi bi-speedometer2" aria-hidden="true"></i> 
+             
           </span>
           <span class="nav-text">Usuário</span>
         </a>
