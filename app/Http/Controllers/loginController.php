@@ -13,8 +13,7 @@ class loginController extends Controller
     {
        
         
-        return view('login.index');
-    }
+        return view('login.forms.eco-wellness.index');
     }
 
     /**
