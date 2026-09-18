@@ -10,6 +10,7 @@ use App\Http\Controllers\MatriculaController;
 use App\Http\Controllers\PlanoController;
 use App\Http\Controllers\TreinoController;
 use App\Http\Controllers\ParceiroController;
+use App\Http\Controllers\ProfessorController;
 use App\Http\Controllers\loginController;
 
 
@@ -26,6 +27,7 @@ Route::resource('matriculas', MatriculaController::class)
 Route::resource('planos', PlanoController::class);
 Route::resource('treinos', TreinoController::class);
 Route::resource('parceiros', ParceiroController::class);
+Route::resource('professores',ProfessorController::class);
 
 
 
