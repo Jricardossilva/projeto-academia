@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Professor;
+use Illuminate\Support\Facades\Log;
 
 class ProfessorController extends Controller
 {
@@ -30,22 +31,22 @@ class ProfessorController extends Controller
      */
     public function store(Request $request)
     {
+        Log::info('teste');
         $request->validate([
             'nome' => 'required|string',
             'email' => 'required|email|unique:professores,email',
             'telefone' => 'required|string',
             'especialidade' => 'required|string',
-            'data_de_contratacao' => 'required|date',
-            'status' => 'required|in:ativo,inativo',
+            'data_de_contratacao' => 'required|date'
         ]);
+        
 
         Professor::create([
             'nome' => $request->nome,
             'email' => $request->email,
             'telefone' => $request->telefone,
             'especialidade' => $request->especialidade,
-            'data_de_contratacao' => $request->data_de_contratacao,
-            'status' => $request->status,
+            'data_de_contratacao' => $request->data_de_contratacao
         ]);
 
         return redirect()->route('professores.index')->with('success', 'Professor criado com sucesso!');
@@ -70,8 +71,7 @@ class ProfessorController extends Controller
             'email' => 'required|email|unique:professores,email,' . $professor->id,
             'telefone' => 'required|string',
             'especialidade' => 'required|string',
-            'data_de_contratacao' => 'required|date',
-            'status' => 'required|in:ativo,inativo',
+            'data_de_contratacao' => 'required|date'
         ]);
 
         $dados = [
@@ -79,8 +79,7 @@ class ProfessorController extends Controller
             'email' => $request->email,
             'telefone' => $request->telefone,
             'especialidade' => $request->especialidade,
-            'data_de_contratacao' => $request->data_de_contratacao,
-            'status' => $request->status,
+            'data_de_contratacao' => $request->data_de_contratacao
         ];
 
         $professor->update($dados);

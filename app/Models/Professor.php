@@ -13,7 +13,10 @@ class Professor extends Model
         'email', 
         'telefone', 
         'especialidade', 
-        'data_de_contratacao', 
-        'status:ativo/inativo'
+        'data_de_contratacao'
+    ];
+
+    protected $casts = [
+        'data_de_contratacao' => 'date',
     ];
 }
