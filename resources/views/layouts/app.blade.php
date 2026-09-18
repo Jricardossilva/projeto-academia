@@ -28,22 +28,23 @@
 
       <nav class="sidebar-nav">
         <a class="nav-link" href="{{ route('usuarios.index') }}">
-          <span class="nav-icon">
-            <i class="bi bi-speedometer2" aria-hidden="true"></i> 
-             
-          </span>
+          <span class="nav-icon"><img src="{{ asset('assets/images/png/add-group.png') }}" alt="Adicionar grupo"></span>
+          <!-- <span class="nav-icon"><i class="bi bi-speedometer2" aria-hidden="true"></i></span> -->
           <span class="nav-text">Usuário</span>
         </a>
         <a class="nav-link" href="{{ route('profissionais.index') }}">
-          <span class="nav-icon"><i class="bi bi-people" aria-hidden="true"></i></span>
+          <span class="nav-icon"><img src="{{ asset('assets/images/png/folder (1).png') }}" alt="Pasta"></span>
+          <!-- <span class="nav-icon"><i class="bi bi-people" aria-hidden="true"></i></span> -->
           <span class="nav-text">Profissionais</span>
         </a>
         <a class="nav-link" href="{{ route('exercicios.index') }}">
-          <span class="nav-icon"><i class="bi bi-person-plus" aria-hidden="true"></i></span>
+          <span class="nav-icon"><img src="{{ asset('assets/images/png/fitness (2).png') }}" alt="Exercícios"></span>
+          <!-- <span class="nav-icon"><i class="bi bi-person-plus" aria-hidden="true"></i></span> -->
           <span class="nav-text">Exercícios</span> 
         </a>
         <a class="nav-link" href="{{ route('fichas-esportivas.index') }}">
-          <span class="nav-icon"><i class="bi bi-person-badge" aria-hidden="true"></i></span>
+          <span class="nav-icon"><img src="{{ asset('assets/images/png/report (2).png') }}" alt="Relatórios"></span>
+          <!-- <span class="nav-icon"><i class="bi bi-person-badge" aria-hidden="true"></i></span> -->
           <span class="nav-text">Fichas esportivas  </span>
         </a>
         <a class="nav-link" href="{{ route('planos.index') }}"> 
