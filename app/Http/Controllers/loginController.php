@@ -13,15 +13,7 @@ class loginController extends Controller
     {
        
         
-        return view('login.forms.eco-wellness.index');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return view('login.forms.neon-cyber.index');
     }
 
     /**
@@ -29,38 +21,30 @@ class loginController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $credenciais = $request->validate([
+            'email' => 'required|email',
+            'senha' => 'required',
+        ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+        if (! Auth::attempt($credenciais, request-> boolean ( 'remember'))) {
+            return back()->withErrors([ 
+                'email' => 'Credenciais inválidas.']); 
+        } 
+        
+        request()->session()->regenerate();
+        return redirect()->intended('usuarios.index');
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+    }   
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request)
     {
-        //
+        Auth::logout();
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
+        return redirect('login.index');
     }
 }
+ 
