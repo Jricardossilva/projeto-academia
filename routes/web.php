@@ -15,7 +15,13 @@ use App\Http\Controllers\loginController;
 
 
 
-Route::get('/', [loginController::class, 'index'])->name('login.index');
+    Route::middleware('guest')->group(function () {
+    Route::get('/',[loginController::class, 'index'])->name('login.index');
+    Route::get('/login',[loginController::class, 'store'])->name('login.store');
+});
+    Route::post('/logout', [loginController::class, 'destroy'])->name('login.destroy');
+
+
 
 Route::resource('usuarios', UsuarioController::class);
 Route::resource('exercicios', ExercicioController::class);
