@@ -27,7 +27,7 @@ Route::resource('matriculas', MatriculaController::class)
 Route::resource('planos', PlanoController::class);
 Route::resource('treinos', TreinoController::class);
 Route::resource('parceiros', ParceiroController::class);
-Route::resource('professores',ProfessorController::class);
+
 
 
 
@@ -42,14 +42,14 @@ Route::resource('professores',ProfessorController::class);
 
 
 
-// Route::controller(ExercicioController::class)->group(function () {
-//     Route::get('/exercicios', 'index')->name('exercicios.index');
-//     Route::get('/exercicios/create', 'create')->name('exercicios.create');
-//     Route::post('/exercicios', 'store')->name('exercicios.store');
-//     Route::get('/exercicios/{exercicio}', 'show')->name('exercicios.show');
-//     Route::get('/exercicios/{exercicio}/edit', 'edit')->name('exercicios.edit');
-//     Route::put('/exercicios/{exercicio}', 'update')->name('exercicios.update');
-//     Route::patch('/exercicios/{exercicio}', 'update')->name('exercicios.update');
-//     Route::delete('/exercicios/{exercicio}', 'destroy')->name('exercicios.destroy');
-// });
+Route::controller(ProfessorController::class)->group(function () {
+    Route::get('/professores', 'index')->name('professores.index');
+    Route::get('/professores/create', 'create')->name('professores.create');
+    Route::post('/professores', 'store')->name('professores.store');
+    Route::get('/professores/{professor}', 'show')->name('professores.show');
+    Route::get('/professores/{professor}/edit', 'edit')->name('professores.edit');
+    Route::put('/professores/{professor}', 'update')->name('professores.update');
+    Route::patch('/professores/{professor}', 'update')->name('professores.update');
+    Route::delete('/professores/{professor}', 'destroy')->name('professores.destroy');
+});
 

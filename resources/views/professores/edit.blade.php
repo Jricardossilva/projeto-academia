@@ -27,8 +27,8 @@
 
     <div class="mb-3">
         <label class="form-label">data_de_contratacao</label>
-        <input type="date" name="data_contratacao" class="form-control" value="{{ old('data_contratacao', $professor->data_contratacao) }}">
-        @error('data_contratacao') <div class="text-danger small">{{ $message }}</div> @enderror
+        <input type="date" name="data_de_contratacao" class="form-control" value="{{ old('data_de_contratacao', $professor->data_de_contratacao) }}">
+        @error('data_de_contratacao') <div class="text-danger small">{{ $message }}</div> @enderror
     </div>
     <button class="btn btn-primary" type="submit">Atualizar</button>
   </form>

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('telefone')->nullable();
             $table->string('especialidade')->nullable();
             $table->date('data_de_contratacao')->nullable();
-            $table->string('status:ativo/inativo')->nullable();
+            $table->string('status')->nullable();
           
             $table->timestamps();
         });
