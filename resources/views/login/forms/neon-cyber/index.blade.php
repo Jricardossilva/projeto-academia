@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neon Cyber Login</title>
+    <title>Body Strike</title>
     <meta name="description" content="Cyberpunk-themed login form with glitch effects, scanline borders and matrix accents.">
     <meta name="author" content="Aigars Silkalns / Colorlib">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="canonical" href="https://preview.colorlib.com/theme/login-forms/forms/neon-cyber/">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%236366f1'/><text x='50' y='68' font-size='60' text-anchor='middle' fill='white' font-family='system-ui,sans-serif'>L</text></svg>">
     <meta property="og:type" content="website">
@@ -62,17 +63,20 @@
                     <p class="access-text">[ ACADEMY ]</p> 
                 </div>
                 
-                <form class="neon-form" id="loginForm" novalidate>
+                <form class="neon-form" id="loginForm" method="POST" action="{{ route('login.store') }}" novalidate> 
+                    @csrf
                     <div class="cyber-field">
                         <div class="field-frame">
                             <div class="field-border"></div>
-                            <input type="email" id="email" name="email" required autocomplete="email">
+                            <input type="email" id="email" name="email" value="{{ old('email') }}" required autocomplete="email"> 
                             <label for="email">&gt; EMAIL</label>
                             <div class="cyber-scanner">
                                 <div class="scan-line"></div>
                             </div>
                         </div>
-                        <span class="cyber-error" id="emailError"></span>
+                        @error('email')
+                            <span class="cyber-error" id="emailError">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="cyber-field">
@@ -94,7 +98,9 @@
                                 <div class="scan-line"></div>
                             </div>
                         </div>
-                        <span class="cyber-error" id="passwordError"></span>
+                       @error('password')
+                            <span class="cyber-error" id="passwordError">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="cyber-options">
