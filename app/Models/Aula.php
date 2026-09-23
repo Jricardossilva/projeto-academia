@@ -13,9 +13,9 @@ class Aula extends Model
         'nome', 
         'descricao', 
         'professor', 
-        'dia_semana', 
-        'horario_inicio', 
-        'horario_fim', 
+        'dia_da_semana', 
+        'horario_de_inicio', 
+        'horario_de_termino', 
         'capacidade', 
         'status'
     ];

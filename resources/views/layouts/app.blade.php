@@ -63,14 +63,11 @@
           <span class="nav-icon"><i class="bi bi-grid-3x3-gap" aria-hidden="true"></i></span>
           <span class="nav-text">Treinos</span>
         </a>
-        
+</a Class="nav-link" href="{{ route('aulas.index') }}">
+          <span class="nav-icon"><i class="bi bi-grid-3x3-gap" aria-hidden="true"></i></span>
+          <span class="nav-text">Aulas</span>
         </a>
-        
-        </a>
-        
-        </a>
-        
-        </a>
+
       </nav>
 
       <div class="sidebar-user">
