@@ -45,9 +45,9 @@
               @endif
             </td>
             <td class="text-end">
-              <!-- <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#avaliacaoModal" data-usuario-id="{{ $usuario->id }}" data-usuario-nome="{{ $usuario->nome }}">
+              <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#avaliacaoModal" data-usuario-id="{{ $usuario->id }}" data-usuario-nome="{{ $usuario->nome }}">
                 <i class="bi bi-clipboard2-pulse" aria-hidden="true"></i> Nova Avaliação
-              </button> -->
+              </button>
               <a class="btn btn-light btn-sm" href="{{ route('aulas.edit', $aula) }}">Editar</a>
               <form action="{{ route('aulas.destroy', $aula) }}" method="POST" class="d-inline">
                 @csrf
