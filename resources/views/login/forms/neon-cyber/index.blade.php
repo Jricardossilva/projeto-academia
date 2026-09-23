@@ -57,9 +57,9 @@
                         <div class="neon-glow"></div>
                     </div>
                     <h1 class="cyber-title">
-                        <span class="title-glitch" data-text="CYPHER_NET">CYPHER_NET</span>
+                        <span class="title-glitch" data-text="CYPHER_NET">Body Strike</span>
                     </h1>
-                    <p class="access-text">[ SECURE_TERMINAL_ACCESS ]</p>
+                    <p class="access-text">[ ACADEMY ]</p> 
                 </div>
                 
                 <form class="neon-form" id="loginForm" novalidate>
@@ -67,7 +67,7 @@
                         <div class="field-frame">
                             <div class="field-border"></div>
                             <input type="email" id="email" name="email" required autocomplete="email">
-                            <label for="email">&gt; EMAIL_ADDRESS</label>
+                            <label for="email">&gt; EMAIL</label>
                             <div class="cyber-scanner">
                                 <div class="scan-line"></div>
                             </div>
@@ -79,7 +79,7 @@
                         <div class="field-frame">
                             <div class="field-border"></div>
                             <input type="password" id="password" name="password" required autocomplete="current-password">
-                            <label for="password">&gt; ACCESS_CODE</label>
+                            <label for="password">&gt; SENHA </label>
                             <button type="button" class="cyber-toggle" id="passwordToggle" aria-label="Toggle password visibility">
                                 <div class="toggle-frame">
                                     <svg class="eye-scan" width="18" height="18" viewBox="0 0 18 18" fill="none">
@@ -106,14 +106,14 @@
                                     <path d="M1 4l2.5 2.5L9 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                             </span>
-                            <span class="checkbox-text">MAINTAIN_SESSION</span>
+                            <span class="checkbox-text">MANTER CONEXÃO</span>
                         </label>
-                        <a href="#" class="cyber-link">RECOVER_ACCESS</a>
+                        <a href="#" class="cyber-link">REDEFINIR SENHA</a>
                     </div>
 
                     <button type="submit" class="neon-button">
                         <div class="btn-matrix"></div>
-                        <span class="btn-text">[ INITIALIZE_CONNECTION ]</span>
+                        <span class="btn-text">[ ENTRAR ]</span>
                         <div class="btn-loader">
                             <div class="matrix-loader">
                                 <div class="matrix-bar"></div>
@@ -128,7 +128,7 @@
 
                 <div class="cyber-divider">
                     <div class="divider-grid"></div>
-                    <span class="divider-text">[ ALT_PROTOCOLS ]</span>
+                    <span class="divider-text">[ SEJA BEM-VINDO ]</span>
                     <div class="divider-grid"></div>
                 </div>
 
@@ -144,19 +144,15 @@
                     
                     <button type="button" class="social-matrix">
                         <div class="social-frame"></div>
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="#ff0080">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="#fcf8fa">
                             <path d="M7.12 0c3.94 0 7.12 3.18 7.12 7.12s-3.18 7.12-7.12 7.12S0 11.06 0 7.12C0 3.18 3.18 0 7.12 0zm1.8 5.56c.36 0 .68.14.92.38.24.24.38.56.38.92v3.28c0 .36-.14.68-.38.92-.24.24-.56.38-.92.38H5.64c-.36 0-.68-.14-.92-.38-.24-.24-.38-.56-.38-.92V6.86c0-.36.14-.68.38-.92.24-.24.56-.38.92-.38h3.28z"/>
                         </svg>
-                        <span>DISCORD_NET</span>
+                        <span>SUPORTE</span>
                         <div class="social-glow"></div>
                     </button>
                 </div>
 
-                <div class="matrix-signup">
-                    <span class="signup-prefix">[ NEW_USER_DETECTED ]</span>
-                    <a href="#" class="matrix-link">CREATE_PROFILE</a>
-                </div>
-
+                
                 <div class="cyber-success" id="successMessage">
                     <div class="success-matrix">
                         <div class="matrix-rings">
