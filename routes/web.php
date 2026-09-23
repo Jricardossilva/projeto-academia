@@ -12,6 +12,7 @@ use App\Http\Controllers\TreinoController;
 use App\Http\Controllers\ParceiroController;
 use App\Http\Controllers\ProfessorController;
 use App\Http\Controllers\loginController;
+use App\Http\Controllers\AulaController;
 
 
 
@@ -64,7 +65,7 @@ Route::controller(ParceiroController::class)->group(function () {
     Route::delete('/parceiros/{parceiro}', 'destroy')->name('parceiros.destroy');
 });
 
-Route::controller(TrenoController::class)->group(function () {
+Route::controller(TreinoController::class)->group(function () {
     Route::get('/treinos', 'index')->name('treinos.index');
     Route::get('/treinos/create', 'create')->name('treinos.create');
     Route::post('/treinos', 'store')->name('treinos.store');
@@ -75,7 +76,7 @@ Route::controller(TrenoController::class)->group(function () {
     Route::delete('/treinos/{treino}', 'destroy')->name('treinos.destroy');
 });
 
-Route::controller(ProficionalController::class)->group(function () {
+Route::controller(ProfissionalController::class)->group(function () {
     Route::get('/profissionais', 'index')->name('profissionais.index');
     Route::get('/profissionais/create', 'create')->name('profissionais.create');
     Route::post('/profissionais', 'store')->name('profissionais.store');
@@ -95,4 +96,15 @@ Route::controller(ExercicioController::class)->group(function () {
     Route::put('/exercicios/{exercicio}', 'update')->name('exercicios.update');
     Route::patch('/exercicios/{exercicio}', 'update')->name('exercicios.update');
     Route::delete('/exercicios/{exercicio}', 'destroy')->name('exercicios.destroy');
+});
+
+Route::controller(AulaController::class)->group(function () {
+    Route::get('/aulas', 'index')->name('aulas.index');
+    Route::get('/aulas/create', 'create')->name('aulas.create');
+    Route::post('/aulas', 'store')->name('aulas.store');
+    Route::get('/aulas/{aula}', 'show')->name('aulas.show');
+    Route::get('/aulas/{aula}/edit', 'edit')->name('aulas.edit');
+    Route::put('/aulas/{aula}', 'update')->name('aulas.update');
+    Route::patch('/aulas/{aula}', 'update')->name('aulas.update');
+    Route::delete('/aulas/{aula}', 'destroy')->name('aulas.destroy');
 });
