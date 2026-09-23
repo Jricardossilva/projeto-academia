@@ -32,7 +32,7 @@ Route::resource('matriculas', MatriculaController::class)
 
 
 
-Route::controller(ProfessorController::class)->group(function () {
+Route::controller(ProfessorController::class)->middleware('auth')->group(function () {
     Route::get('/professores', 'index')->name('professores.index');
     Route::get('/professores/create', 'create')->name('professores.create');
     Route::post('/professores', 'store')->name('professores.store');
