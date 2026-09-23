@@ -24,11 +24,11 @@ use App\Http\Controllers\AulaController;
 
 
 
-Route::resource('usuarios', UsuarioController::class);
+Route::resource('usuarios', UsuarioController::class)->middleware('auth');
 Route::resource('fichas-esportivas', FichaEsportivaController::class)
-    ->parameters(['fichas-esportivas' => 'ficha']);
+    ->parameters(['fichas-esportivas' => 'ficha'])->middleware('auth');
 Route::resource('matriculas', MatriculaController::class)
-    ->parameters(['matriculas' => 'matricula']);
+    ->parameters(['matriculas' => 'matricula'])->middleware('auth'); 
 
 
 
@@ -43,7 +43,7 @@ Route::controller(ProfessorController::class)->middleware('auth')->group(functio
     Route::delete('/professores/{professor}', 'destroy')->name('professores.destroy');
 });
 
-Route::controller(PlanoController::class)->group(function () {
+Route::controller(PlanoController::class)->middleware('auth')->group(function () {
     Route::get('/planos', 'index')->name('planos.index');
     Route::get('/planos/create', 'create')->name('planos.create');
     Route::post('/planos', 'store')->name('planos.store');
@@ -54,7 +54,7 @@ Route::controller(PlanoController::class)->group(function () {
     Route::delete('/planos/{plano}', 'destroy')->name('planos.destroy');
 });
 
-Route::controller(ParceiroController::class)->group(function () {
+Route::controller(ParceiroController::class)->middleware('auth')->group(function () {
     Route::get('/parceiros', 'index')->name('parceiros.index');
     Route::get('/parceiros/create', 'create')->name('parceiros.create');
     Route::post('/parceiros', 'store')->name('parceiros.store');
@@ -65,7 +65,7 @@ Route::controller(ParceiroController::class)->group(function () {
     Route::delete('/parceiros/{parceiro}', 'destroy')->name('parceiros.destroy');
 });
 
-Route::controller(TreinoController::class)->group(function () {
+Route::controller(TreinoController::class)->middleware('auth')->group(function () {
     Route::get('/treinos', 'index')->name('treinos.index');
     Route::get('/treinos/create', 'create')->name('treinos.create');
     Route::post('/treinos', 'store')->name('treinos.store');
@@ -76,7 +76,7 @@ Route::controller(TreinoController::class)->group(function () {
     Route::delete('/treinos/{treino}', 'destroy')->name('treinos.destroy');
 });
 
-Route::controller(ProfissionalController::class)->group(function () {
+Route::controller(ProfissionalController::class)->middleware('auth')->group(function () {
     Route::get('/profissionais', 'index')->name('profissionais.index');
     Route::get('/profissionais/create', 'create')->name('profissionais.create');
     Route::post('/profissionais', 'store')->name('profissionais.store');
@@ -87,7 +87,7 @@ Route::controller(ProfissionalController::class)->group(function () {
     Route::delete('/profissionais/{profissional}', 'destroy')->name('profissionais.destroy');
 });
 
-Route::controller(ExercicioController::class)->group(function () {
+Route::controller(ExercicioController::class)->middleware('auth')->group(function () {
     Route::get('/exercicios', 'index')->name('exercicios.index');
     Route::get('/exercicios/create', 'create')->name('exercicios.create');
     Route::post('/exercicios', 'store')->name('exercicios.store');
@@ -98,7 +98,7 @@ Route::controller(ExercicioController::class)->group(function () {
     Route::delete('/exercicios/{exercicio}', 'destroy')->name('exercicios.destroy');
 });
 
-Route::controller(AulaController::class)->group(function () {
+Route::controller(AulaController::class)->middleware('auth')->group(function () {
     Route::get('/aulas', 'index')->name('aulas.index');
     Route::get('/aulas/create', 'create')->name('aulas.create');
     Route::post('/aulas', 'store')->name('aulas.store');
