@@ -9,6 +9,7 @@ use App\Http\Controllers\ProfissionalController;
 use App\Http\Controllers\MatriculaController;
 use App\Http\Controllers\PlanoController;
 use App\Http\Controllers\TreinoController;
+use App\Http\Controllers\AvaliacaoController;
 use App\Http\Controllers\ParceiroController;
 use App\Http\Controllers\ProfessorController;
 use App\Http\Controllers\loginController;
@@ -108,3 +109,5 @@ Route::controller(AulaController::class)->middleware('auth')->group(function () 
     Route::patch('/aulas/{aula}', 'update')->name('aulas.update');
     Route::delete('/aulas/{aula}', 'destroy')->name('aulas.destroy');
 });
+
+Route::post('/avaliacoes', [AvaliacaoController::class, 'store'])->name('avaliacoes.store');

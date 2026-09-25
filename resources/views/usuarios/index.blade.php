@@ -31,9 +31,9 @@
               @endif
             </td>
             <td class="text-end">
-              <!-- <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#avaliacaoModal" data-usuario-id="{{ $usuario->id }}" data-usuario-nome="{{ $usuario->nome }}">
+              <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#avaliacaoModal" data-usuario-id="{{ $usuario->id }}" data-usuario-nome="{{ $usuario->nome }}">
                 <i class="bi bi-clipboard2-pulse" aria-hidden="true"></i> Nova Avaliação
-              </button> -->
+              </button>
               <a class="btn btn-light btn-sm" href="{{ route('usuarios.edit', $usuario) }}">Editar</a>
               <form action="{{ route('usuarios.destroy', $usuario) }}" method="POST" class="d-inline">
                 @csrf
@@ -51,7 +51,7 @@
 <div class="modal fade" id="avaliacaoModal" tabindex="-1" aria-labelledby="avaliacaoModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      <form id="avaliacaoForm" method="POST" action="#">
+     <form id="avaliacaoForm" method="POST" action="{{ route('avaliacoes.store') }}">
         @csrf
         <input type="hidden" name="usuario_id" id="avaliacaoUsuarioId">
 
@@ -61,14 +61,62 @@
         </div>
 
         <div class="modal-body">
+
           <div class="mb-3">
-            <label for="avaliacaoData" class="form-label">Data da avaliação</label>
-            <input type="date" class="form-control" id="avaliacaoData" name="data_avaliacao">
+            <label for="peso" class="form-label">Peso (kg)</label>
+            <input type="number" step="0.1" min="0" class="form-control" id="peso" name="peso" required>
           </div>
 
-          <div id="avaliacaoCamposAdicionais">
-            {{-- Demais campos da ficha (peso, medidas, etc.) entram aqui --}}
+          <div class="mb-3">
+            <label for="altura" class="form-label">Altura (m)</label>
+            <input type="number" step="0.1" min="0" class="form-control" id="altura" name="altura" required>
           </div>
+
+          <div class="mb-3">
+            <label for="biceps_direito" class="form-label">Bíceps direito (cm)</label>
+            <input type="number" step="0.1" min="0" class="form-control" id="biceps_direito" name="biceps_direito" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="biceps_esquerdo" class="form-label">Bíceps esquerdo (cm)</label>
+            <input type="number" step="0.1" min="0" class="form-control" id="biceps_esquerdo" name="biceps_esquerdo" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="antebraco_direito" class="form-label">Antebraço direito (cm)</label>
+            <input type="number" step="0.1" min="0" class="form-control" id="antebraco_direito" name="antebraco_direito" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="antebraco_esquerdo" class="form-label">Antebraço esquerdo (cm)</label>
+            <input type="number" step="0.1" min="0" class="form-control" id="antebraco_esquerdo" name="antebraco_esquerdo" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="coxa_direita" class="form-label">Coxa direita (cm)</label>
+            <input type="number" step="0.1" min="0" class="form-control" id="coxa_direita" name="coxa_direita" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="coxa_esquerda" class="form-label">Coxa esquerda (cm)</label>
+            <input type="number" step="0.1" min="0" class="form-control" id="coxa_esquerda" name="coxa_esquerda" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="panturrilha_direita" class="form-label">Panturrilha direita (cm)</label>
+            <input type="number" step="0.1" min="0" class="form-control" id="panturrilha_direita" name="panturrilha_direita" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="panturrilha_esquerda" class="form-label">Panturrilha esquerda (cm)</label>
+            <input type="number" step="0.1" min="0" class="form-control" id="panturrilha_esquerda" name="panturrilha_esquerda" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="cintura" class="form-label">Cintura (cm)</label>
+            <input type="number" step="0.1" min="0" class="form-control" id="cintura" name="cintura" required>
+          </div>
+
         </div>
 
         <div class="modal-footer">
