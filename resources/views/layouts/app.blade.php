@@ -72,7 +72,7 @@
 
       <div class="sidebar-user">
         <img class="avatar-img avatar-md sidebar-user-avatar" src="{{ asset('assets/images/avatar/avatar.jpg') }}" alt="Admin">
-        <strong>Admin</strong>
+        
         <small>Active Workspace</small>
       </div>
 
@@ -112,13 +112,19 @@
             <div class="dropdown">
               <button class="profile-button dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <img class="avatar-img avatar-sm" src="{{ asset('assets/images/avatar/avatar.jpg') }}" alt="Admin">
-                <span class="profile-name d-none d-sm-inline">Admin</span>
+                
               </button>
               <ul class="dropdown-menu dropdown-menu-end">
                 <li><a class="dropdown-item" href="#">Profile</a></li>
                 <li><a class="dropdown-item" href="#">Account settings</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Sign out</a></li>
+                <li>
+                    <form method="POST" action="{{ route('login.destroy') }}">
+                        @csrf
+                        <button type="submit" class="dropdown-item">Sign out</button>
+                    </form>
+                </li>
+
               </ul>
             </div>
           </div>

@@ -32,12 +32,12 @@ class PlanoController extends Controller
         $request->validate([
             'nome' => 'required|string',
             'descricao' => 'required|string',
-            'preco' => 'required|min:5',
+            'valor' => 'required|min:5',
             'duracao' => 'required|integer',
             'beneficios' => 'required|string'
         ]);
 
-        Plano::create($request->all());
+        Planos::create($request->all());
 
         return redirect()->route('planos.index')->with('success', 'Plano criado com sucesso!');
     }
@@ -46,20 +46,20 @@ class PlanoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Plano $plano)
+    public function edit(Planos $plano)
     {
-        return view('plano.edit', ['plano' => $plano]);
+        return view('planos.edit', ['plano' => $plano]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Plano $plano)
+    public function update(Request $request, Planos $plano)
     {
         $request->validate([
             'nome' => 'required|string',
             'descricao' => 'required|string',
-            'preco' => 'required|min:5',
+            'valor' => 'required|min:5',
             'duracao' => 'required|integer',
             'beneficios' => 'required|string'
         ]);
@@ -72,7 +72,7 @@ class PlanoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Plano $plano)
+    public function destroy(Planos $plano)
     {
         $plano->delete();
         return redirect()->route('planos.index')->with('success', 'Plano removido com sucesso!');

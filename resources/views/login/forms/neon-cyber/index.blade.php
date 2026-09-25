@@ -65,6 +65,9 @@
                 
                 <form class="neon-form" id="loginForm" method="POST" action="{{ route('login.store') }}" novalidate> 
                     @csrf
+                    @if ($errors->any())
+                    <div class="alert alert-danger">{{ $errors->first('email') }}</div>
+                    @endif
                     <div class="cyber-field">
                         <div class="field-frame">
                             <div class="field-border"></div>
