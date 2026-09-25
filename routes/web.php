@@ -59,7 +59,7 @@ Route::controller(ParceiroController::class)->middleware('auth')->group(function
     Route::get('/parceiros/create', 'create')->name('parceiros.create');
     Route::post('/parceiros', 'store')->name('parceiros.store');
     Route::get('/parceiros/{parceiro}', 'show')->name('parceiros.show');
-    Route::get('/parceiros/{parceiro}/edit', 'edit')->name('planos.edit');
+    Route::get('/parceiros/{parceiro}/edit', 'edit')->name('parceiros.edit');
     Route::put('/parceiros/{parceiro}', 'update')->name('parceiros.update');
     Route::patch('/parceiros/{parceiro}', 'update')->name('parceiros.update');
     Route::delete('/parceiros/{parceiro}', 'destroy')->name('parceiros.destroy');
