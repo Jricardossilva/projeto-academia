@@ -24,7 +24,7 @@ class Matricula extends Model
     
     public function usuario()
     {
-        return $this->hasMany(Usuario::class);
+        return $this->hasMany(Avaliacao::class);
     }
 
     public function plano()
