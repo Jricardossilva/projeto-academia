@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class loginController extends Controller
 {
@@ -23,12 +24,14 @@ class loginController extends Controller
     {
         $credenciais = $request->validate([
             'email' => 'required|email',
-            'senha' => 'required',
+            'password' => 'required',
         ]);
 
-        if (! Auth::attempt($credenciais, request-> boolean ( 'remember'))) {
+            if (! Auth::attempt($credenciais, $request->boolean('remember'))) {
             return back()->withErrors([ 
-                'email' => 'Credenciais inválidas.']); 
+                'email' => 'Credenciais inválidas.',
+                ])->onlyInput('email');                
+                 
         } 
         
         request()->session()->regenerate();
@@ -44,7 +47,7 @@ class loginController extends Controller
         Auth::logout();
         request()->session()->invalidate();
         request()->session()->regenerateToken();
-        return redirect('login.index');
+        return redirect()->route('login.index');
     }
 }
  
