@@ -19,4 +19,14 @@ class Treino extends Model
     protected $casts = [
         'data_criacao' => 'date',
     ];
+
+    public function usuario()
+    {
+        return $this->belongsTo(Usuario::class);
+    }
+
+    public function profissional()
+    {
+        return $this->belongsTo(Profissional::class);
+    }
 }
