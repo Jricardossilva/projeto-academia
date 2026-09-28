@@ -9,14 +9,21 @@ use App\Models\Exercicio;
 
 class Treino extends Model
 {
-    protected $table = 'treino_exercicio';
+    protected $table = 'treinos';
     protected $fillable = [
         'usuario_id',
         'profissional_id',
-        'nome',        
-        'data_criacao'
+        'nome'
     ];
-    protected $casts = [
-        'data_criacao' => 'date',
-    ];
+
+    public function usuario()
+    {
+        return $this->belongsTo(Usuario::class, 'usuario_id');
+    }
+
+    public function profissional()
+    {
+        return $this->belongsTo(Profissional::class, 'profissional_id');
+    }
 }
+
