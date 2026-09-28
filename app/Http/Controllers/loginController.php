@@ -35,7 +35,7 @@ class loginController extends Controller
         } 
         
         request()->session()->regenerate();
-        return redirect()->intended('usuarios.index');
+        return redirect()->intended(route('usuarios.index'));
 
     }   
 

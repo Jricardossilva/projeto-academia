@@ -18,10 +18,13 @@ use App\Http\Controllers\AulaController;
 
 
     Route::middleware('guest')->group(function () {
-    Route::get('/',[loginController::class, 'index'])->name('login.index');
-    Route::get('/login',[loginController::class, 'store'])->name('login.store');
-});
-    Route::post('/logout', [loginController::class, 'destroy'])->name('login.destroy');
+        Route::get('/', [loginController::class, 'index'])->name('login.index');
+        Route::post('/login', [loginController::class, 'store'])->name('login.store');
+    });
+
+    Route::middleware('auth')->group(function () {
+        Route::post('/logout', [loginController::class, 'destroy'])->name('login.destroy');
+    });
 
 
 
