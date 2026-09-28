@@ -17,10 +17,15 @@ class Aula extends Model
         'horario_de_inicio', 
         'horario_de_termino', 
         'capacidade', 
-        'status'
+        'ativo',
     ];
 
     protected $casts = [
-        'status' => 'boolean',
+        'ativo' => 'boolean',
     ];
+
+    public function professor()
+    {
+        return $this->belongsTo(Professor::class);
+    }
 }
