@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Usuario;
+use App\Models\Planos;
 class Matricula extends Model
 {
     protected $table = 'matriculas';
@@ -24,11 +25,11 @@ class Matricula extends Model
     
     public function usuario()
     {
-        return $this->hasMany(Avaliacao::class);
+        return $this->belongsTo(Usuario::class);
     }
 
     public function plano()
     {
-        return $this->hasOne(Planos::class);
+        return $this->belongsTo(Planos::class);
     }
 }

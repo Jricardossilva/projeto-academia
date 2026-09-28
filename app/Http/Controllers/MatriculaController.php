@@ -30,8 +30,7 @@ class MatriculaController extends Controller
             'usuario_id' => 'required',
             'plano_id' => 'required',
             'data_inicio' => 'required|date',
-            'data_fim' => 'nullable|date|after_or_equal:data_inicio',
-            'status' => 'required|string',
+            'data_fim' => 'nullable|date|after_or_equal:data_inicio'
         ]);
 
         Matricula::create($dados);
