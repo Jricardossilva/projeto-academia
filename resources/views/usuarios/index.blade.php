@@ -56,72 +56,80 @@
         <input type="hidden" name="usuario_id" id="avaliacaoUsuarioId">
 
         <div class="modal-header">
-          <h5 class="modal-title" id="avaliacaoModalLabel">Nova ficha de avaliação — <span id="avaliacaoUsuarioNome"></span></h5>
+          <h5 class="modal-title" id="avaliacaoModalLabel">
+            <i class="bi bi-clipboard2-pulse" aria-hidden="true"></i>
+            Nova ficha de avaliação — <span id="avaliacaoUsuarioNome" class="text-primary"></span>
+          </h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
         </div>
 
         <div class="modal-body">
 
-          <div class="mb-3">
-            <label for="peso" class="form-label">Peso (kg)</label>
-            <input type="number" step="0.1" min="0" class="form-control" id="peso" name="peso" required>
+          <h6 class="text-uppercase text-muted small fw-bold mb-3">Dados gerais</h6>
+          <div class="row g-3 mb-4">
+            <div class="col-6">
+              <label for="peso" class="form-label">Peso (kg)</label>
+              <input type="number" step="0.1" min="0" class="form-control" id="peso" name="peso" required>
+            </div>
+            <div class="col-6">
+              <label for="altura" class="form-label">Altura (m)</label>
+              <input type="number" step="0.1" min="0" class="form-control" id="altura" name="altura" required>
+            </div>
           </div>
 
-          <div class="mb-3">
-            <label for="altura" class="form-label">Altura (m)</label>
-            <input type="number" step="0.1" min="0" class="form-control" id="altura" name="altura" required>
+          <h6 class="text-uppercase text-muted small fw-bold mb-3">Membros superiores</h6>
+          <div class="row g-3 mb-4">
+            <div class="col-6">
+              <label for="biceps_direito" class="form-label">Bíceps direito (cm)</label>
+              <input type="number" step="0.1" min="0" class="form-control" id="biceps_direito" name="biceps_direito">
+            </div>
+            <div class="col-6">
+              <label for="biceps_esquerdo" class="form-label">Bíceps esquerdo (cm)</label>
+              <input type="number" step="0.1" min="0" class="form-control" id="biceps_esquerdo" name="biceps_esquerdo">
+            </div>
+            <div class="col-6">
+              <label for="antebraco_direito" class="form-label">Antebraço direito (cm)</label>
+              <input type="number" step="0.1" min="0" class="form-control" id="antebraco_direito" name="antebraco_direito">
+            </div>
+            <div class="col-6">
+              <label for="antebraco_esquerdo" class="form-label">Antebraço esquerdo (cm)</label>
+              <input type="number" step="0.1" min="0" class="form-control" id="antebraco_esquerdo" name="antebraco_esquerdo">
+            </div>
           </div>
 
-          <div class="mb-3">
-            <label for="biceps_direito" class="form-label">Bíceps direito (cm)</label>
-            <input type="number" step="0.1" min="0" class="form-control" id="biceps_direito" name="biceps_direito" required>
+          <h6 class="text-uppercase text-muted small fw-bold mb-3">Membros inferiores</h6>
+          <div class="row g-3 mb-4">
+            <div class="col-6">
+              <label for="coxa_direita" class="form-label">Coxa direita (cm)</label>
+              <input type="number" step="0.1" min="0" class="form-control" id="coxa_direita" name="coxa_direita">
+            </div>
+            <div class="col-6">
+              <label for="coxa_esquerda" class="form-label">Coxa esquerda (cm)</label>
+              <input type="number" step="0.1" min="0" class="form-control" id="coxa_esquerda" name="coxa_esquerda">
+            </div>
+            <div class="col-6">
+              <label for="panturrilha_direita" class="form-label">Panturrilha direita (cm)</label>
+              <input type="number" step="0.1" min="0" class="form-control" id="panturrilha_direita" name="panturrilha_direita">
+            </div>
+            <div class="col-6">
+              <label for="panturrilha_esquerda" class="form-label">Panturrilha esquerda (cm)</label>
+              <input type="number" step="0.1" min="0" class="form-control" id="panturrilha_esquerda" name="panturrilha_esquerda">
+            </div>
           </div>
 
-          <div class="mb-3">
-            <label for="biceps_esquerdo" class="form-label">Bíceps esquerdo (cm)</label>
-            <input type="number" step="0.1" min="0" class="form-control" id="biceps_esquerdo" name="biceps_esquerdo" required>
-          </div>
-
-          <div class="mb-3">
-            <label for="antebraco_direito" class="form-label">Antebraço direito (cm)</label>
-            <input type="number" step="0.1" min="0" class="form-control" id="antebraco_direito" name="antebraco_direito" required>
-          </div>
-
-          <div class="mb-3">
-            <label for="antebraco_esquerdo" class="form-label">Antebraço esquerdo (cm)</label>
-            <input type="number" step="0.1" min="0" class="form-control" id="antebraco_esquerdo" name="antebraco_esquerdo" required>
-          </div>
-
-          <div class="mb-3">
-            <label for="coxa_direita" class="form-label">Coxa direita (cm)</label>
-            <input type="number" step="0.1" min="0" class="form-control" id="coxa_direita" name="coxa_direita" required>
-          </div>
-
-          <div class="mb-3">
-            <label for="coxa_esquerda" class="form-label">Coxa esquerda (cm)</label>
-            <input type="number" step="0.1" min="0" class="form-control" id="coxa_esquerda" name="coxa_esquerda" required>
-          </div>
-
-          <div class="mb-3">
-            <label for="panturrilha_direita" class="form-label">Panturrilha direita (cm)</label>
-            <input type="number" step="0.1" min="0" class="form-control" id="panturrilha_direita" name="panturrilha_direita" required>
-          </div>
-
-          <div class="mb-3">
-            <label for="panturrilha_esquerda" class="form-label">Panturrilha esquerda (cm)</label>
-            <input type="number" step="0.1" min="0" class="form-control" id="panturrilha_esquerda" name="panturrilha_esquerda" required>
-          </div>
-
-          <div class="mb-3">
-            <label for="cintura" class="form-label">Cintura (cm)</label>
-            <input type="number" step="0.1" min="0" class="form-control" id="cintura" name="cintura" required>
+          <h6 class="text-uppercase text-muted small fw-bold mb-3">Tronco</h6>
+          <div class="row g-3">
+            <div class="col-6">
+              <label for="cintura" class="form-label">Cintura (cm)</label>
+              <input type="number" step="0.1" min="0" class="form-control" id="cintura" name="cintura">
+            </div>
           </div>
 
         </div>
 
         <div class="modal-footer">
           <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
-          <button type="submit" class="btn btn-primary">Salvar</button>
+          <button type="submit" class="btn btn-primary"><i class="bi bi-check-lg" aria-hidden="true"></i> Salvar</button>
         </div>
       </form>
     </div>
