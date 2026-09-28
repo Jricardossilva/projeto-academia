@@ -9,15 +9,21 @@
     @csrf
 
     <div class="mb-3">
+      <label class="form-label">Nome</label>
+      <input type="text" name="nome" class="form-control" value="{{ old('nome') }}">
+      @error('nome') <div class="text-danger small">{{ $message }}</div> @enderror
+    </div>
+
+    <div class="mb-3">
       <label class="form-label">Categoria</label>
       <input type="text" name="categoria" class="form-control" value="{{ old('categoria') }}">
       @error('categoria') <div class="text-danger small">{{ $message }}</div> @enderror
     </div>
 
     <div class="mb-3">
-      <label class="form-label">Nome</label>
-      <input type="text" name="nome" class="form-control" value="{{ old('nome') }}">
-      @error('nome') <div class="text-danger small">{{ $message }}</div> @enderror
+      <label class="form-label">Descrição</label>
+      <input type="text" name="descricao" class="form-control" value="{{ old('descricao') }}">
+      @error('descricao') <div class="text-danger small">{{ $message }}</div> @enderror
     </div>
 
     <div class="mb-3">
@@ -38,11 +44,7 @@
       @error('beneficio_oferecido') <div class="text-danger small">{{ $message }}</div> @enderror
     </div>
 
-    <div class="mb-3">
-      <label class="form-label">Descrição</label>
-      <input type="text" name="descricao" class="form-control" value="{{ old('descricao') }}">
-      @error('descricao') <div class="text-danger small">{{ $message }}</div> @enderror
-    </div>
+    
 
     <button class="btn btn-primary" type="submit">Salvar</button>
   </form>

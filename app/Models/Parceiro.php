@@ -9,6 +9,7 @@ class Parceiro extends Model
     protected $table = 'parceiros';
     protected $fillable = [
         'nome', 
+        'categoria',
         'descricao', 
         'telefone', 
         'email', 

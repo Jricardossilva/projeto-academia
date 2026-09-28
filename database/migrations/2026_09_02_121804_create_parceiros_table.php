@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('categoria');
             $table->string('telefone');
             $table->string('email');
-            $table->string('beneficio oferecido');
+            $table->string('beneficio_oferecido');
             $table->text('descricao');
             $table->boolean('ativo')->default(true);
 

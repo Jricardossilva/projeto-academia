@@ -33,11 +33,11 @@ class ParceiroController extends Controller
     {
         $request->validate([
             'nome' => 'required|string',
+            'categoria' => 'required|string',
             'descricao' => 'required|string',
             'telefone' => 'required|string',
             'email' => 'required|email',
             'beneficio_oferecido' => 'required|string',
-            'ativo' => 'required|boolean',
         ]);
 
         Parceiro::create($request->all());
@@ -60,6 +60,7 @@ class ParceiroController extends Controller
     {
         $request->validate([
             'nome' => 'required|string',
+            'categoria' => 'required|string',
             'descricao' => 'required|string',
             'telefone' => 'required|string',
             'email' => 'required|email',

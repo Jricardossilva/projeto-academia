@@ -13,6 +13,10 @@
       <input type="text" name="nome" class="form-control" value="{{ old('nome', $usuario->nome) }}">
     </div>
     <div class="mb-3">
+      <label class="form-label">Categoria</label>
+      <input type="text" name="categoria" class="form-control" value="{{ old('categoria', $usuario->categoria) }}">
+    </div>
+    <div class="mb-3">
       <label class="form-label">E-mail</label>
       <input type="email" name="email" class="form-control" value="{{ old('email', $usuario->email) }}">
     </div>
