@@ -9,8 +9,8 @@
     @csrf
     <div class="mb-3 col-md-6">
       <label class="form-label">Nome</label>
-      <input type="text" name="profissionais" class="form-control" value="{{ old('profissionais') }}">
-      @error('profissionais') <div class="text-danger small">{{ $message }}</div> @enderror
+      <input type="text" name="nome" class="form-control" value="{{ old('nome') }}">
+      @error('nome') <div class="text-danger small">{{ $message }}</div> @enderror
     </div>
     <div class="mb-3">
       <label class="form-label">Usuário</label>
@@ -35,16 +35,6 @@
         @endforeach
       </select>
       @error('profissional_id') <div class="text-danger small">{{ $message }}</div> @enderror  
-    </div>
-    <div class="mb-3">
-      <label class="form-label">CPF</label>
-      <input type="text" name="cpf" class="form-control" value="{{ old('cpf') }}">
-      @error('cpf') <div class="text-danger small">{{ $message }}</div> @enderror
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Senha</label>
-      <input type="password" name="senha" class="form-control">
-      @error('senha') <div class="text-danger small">{{ $message }}</div> @enderror
     </div>
     <button class="btn btn-primary" type="submit">Salvar</button>
   </form>

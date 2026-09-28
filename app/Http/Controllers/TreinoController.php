@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Treino;
+use App\Models\Usuario;
+use App\Models\Profissional;
+
 
 class TreinoController extends Controller
 {
@@ -16,7 +19,13 @@ class TreinoController extends Controller
 
     public function create()
     {
-        return view('treinos.create');        
+        $usuarios = Usuario::all();
+        $profissionais = Profissional::all();
+
+         return view('treinos.create', compact(
+        'usuarios',
+        'profissionais'
+    ));
     }
 
     public function store(Request $request)
@@ -24,8 +33,8 @@ class TreinoController extends Controller
         $request->validate([
             'usuario_id' => 'required|exists:usuarios,id',
             'profissional_id' => 'required|exists:profissionais,id',
-            'nome' => 'required|string|max:255',
-            'data_criacao' => 'required|date',
+            'nome' => 'required|string|max:255'
+            
         ]);
 
         Treino::create($request->all());
@@ -34,19 +43,20 @@ class TreinoController extends Controller
     }
 
     public function edit(Treino $treino)
-    {
-        return view('treinos.edit', ['treino' => $treino]);
-    }
+    {   
+        $usuarios = Usuario::all();
+        $profissionais = Profissional::all();
+
+        return view('treinos.edit', compact('treino', 'usuarios', 'profissionais'));
+    }   
 
     public function update(Request $request, Treino $treino)
-    {
+    {   
         $request->validate([
             'usuario_id' => 'required|exists:usuarios,id',
             'profissional_id' => 'required|exists:profissionais,id',
-            'nome' => 'required|string|max:255',
-            'data_criacao' => 'required|date',
+            'nome' => 'required|string|max:255'
         ]);
-
         $treino->update($request->all());
 
         return redirect()->route('treinos.index')->with('success', 'Treino atualizado com sucesso!');
