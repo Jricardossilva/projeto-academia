@@ -21,10 +21,10 @@
         </tr>
       </thead>
       <tbody>
-        @foreach ($matriculas as $matriculas) 
+        @foreach ($matriculas as $matricula) 
           <tr>
-            <td>{{ $matricula->nome }}</td>
-            <td>{{ $matricula->plano }}</td>
+            <td>{{ $matricula->usuario->nome }}</td>
+            <td>{{ $matricula->plano->nome }}</td>
             <td>{{ $matricula->data_inicio }}</td>
             <td>{{ $matricula->data_fim }}</td>
             <td class="text-end">
