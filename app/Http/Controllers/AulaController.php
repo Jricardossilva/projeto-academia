@@ -67,11 +67,11 @@ class AulaController extends Controller
             'nome' => 'required|string|max:255',
             'descricao' => 'required|string',
             'professor' => 'required|string|max:255',
-            'dia_semana' => 'required|string|max:255',
-            'horario_inicio' => 'required|date_format:H:i',
-            'horario_fim' => 'required|date_format:H:i',
+            'dia_da_semana' => 'required|string|max:255',
+            'horario_de_inicio' => 'required|date_format:H:i',
+            'horario_de_termino' => 'required|date_format:H:i',
             'capacidade' => 'required|integer|min:1',
-            'status' => 'boolean'
+            'ativo' => 'boolean'
         ]);
 
         $aula = Aula::findOrFail($id);
