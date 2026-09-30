@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glassmorphism Login Form</title>
+    <title>@yield('title', config('app.name', 'adminHMD'))</title>
     <meta name="description" content="Frosted-glass login form with backdrop blur, floating labels and social sign-in.">
     <meta name="author" content="Aigars Silkalns / Colorlib">
     <link rel="canonical" href="https://preview.colorlib.com/theme/login-forms/forms/glassmorphism/">
@@ -23,15 +23,15 @@
     <div class="login-container">
         <div class="login-card">
             <div class="login-header">
-                <h2>Welcome Back</h2>
-                <p>Sign in to your account</p>
+                <h2>Bem-vindo à Zenith</h2>
+                <p>Continue sua jornada</p>
             </div>
             
-            <form class="login-form" id="loginForm" novalidate>
+            <form class="login-form" id="loginForm" method="POST" action="{{ route('login.store') }}" novalidate>
                 <div class="form-group">
                     <div class="input-wrapper">
                         <input type="email" id="email" name="email" required autocomplete="email">
-                        <label for="email">Email Address</label>
+                        <label for="email">Email</label>
                         <span class="focus-border"></span>
                     </div>
                     <span class="error-message" id="emailError"></span>
@@ -40,7 +40,7 @@
                 <div class="form-group">
                     <div class="input-wrapper password-wrapper">
                         <input type="password" id="password" name="password" required autocomplete="current-password">
-                        <label for="password">Password</label>
+                        <label for="password">Senha</label>
                         <button type="button" class="password-toggle" id="passwordToggle" aria-label="Toggle password visibility">
                             <span class="eye-icon"></span>
                         </button>
@@ -49,25 +49,16 @@
                     <span class="error-message" id="passwordError"></span>
                 </div>
 
-                <div class="form-options">
-                    <label class="remember-wrapper">
-                        <input type="checkbox" id="remember" name="remember">
-                        <span class="checkbox-label">
-                            <span class="checkmark"></span>
-                            Remember me
-                        </span>
-                    </label>
-                    <a href="#" class="forgot-password">Forgot password?</a>
-                </div>
+                
 
                 <button type="submit" class="login-btn btn">
-                    <span class="btn-text">Sign In</span>
+                    <span class="btn-text">Entrar</span>
                     <span class="btn-loader"></span>
                 </button>
             </form>
 
             <div class="divider">
-                <span>or continue with</span>
+                <span>Sobre o Projeto</span>
             </div>
 
             <div class="social-login">
@@ -82,13 +73,13 @@
             </div>
 
             <div class="signup-link">
-                <p>Don't have an account? <a href="#">Sign up</a></p>
+                <!-- <p>Ainda não tem uma conta? <a href="#">Cadastre-se</a></p> -->
             </div>
 
             <div class="success-message" id="successMessage">
                 <div class="success-icon">✓</div>
-                <h3>Login Successful!</h3>
-                <p>Redirecting to your dashboard...</p>
+                <h3>Login realizado com sucesso!</h3>
+                <p>Redirecionando para seu painel...</p>
             </div>
         </div>
     </div>

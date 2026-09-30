@@ -14,7 +14,7 @@ class loginController extends Controller
     {
        
         
-        return view('login.forms.neon-cyber.index');
+        return view('login.forms.glassmorphism.index');
     }
 
     /**
