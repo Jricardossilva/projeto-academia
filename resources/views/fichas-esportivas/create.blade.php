@@ -41,6 +41,7 @@
       <textarea name="objetivos" class="form-control">{{ old('objetivos') }}</textarea>
     </div>
     <button class="btn btn-primary" type="submit">Salvar</button>
+    <a class="btn btn-secondary" href="{{ route('fichas-esportivas.index') }}">Cancelar</a>
   </form>
 </section>
 @endsection

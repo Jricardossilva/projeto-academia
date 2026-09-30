@@ -13,7 +13,15 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->redirectGuestsTo(fn () => route('login.index'));
-        $middleware->redirectUsersTo(fn () => route('usuarios.index'));
+        $middleware->redirectUsersTo(function ($request) {
+            $usuario = $request->user();
+            return $usuario && $usuario->tipo === 'aluno'
+                ? route('usuarios.show', $usuario)
+                : route('usuarios.index');
+        });
+        $middleware->alias([
+            'role' => \App\Http\Middleware\EnsureUserRole::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(

@@ -36,6 +36,7 @@
       @error('data_fim') <div class="text-danger small">{{ $message }}</div> @enderror
     </div>
     <button class="btn btn-primary" type="submit">Salvar</button>
+    <a class="btn btn-secondary" href="{{ route('matriculas.index') }}">Cancelar</a>
   </form>
 </section>
 @endsection

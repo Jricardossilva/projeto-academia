@@ -34,6 +34,7 @@
       <textarea name="curriculo" class="form-control">{{ old('curriculo') }}</textarea>
     </div>
     <button class="btn btn-primary" type="submit">Salvar</button>
+    <a class="btn btn-secondary" href="{{ route('profissionais.index') }}">Cancelar</a>
   </form>
 </section>
 @endsection

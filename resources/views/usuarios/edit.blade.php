@@ -24,7 +24,18 @@
       <label class="form-label">Nova senha (deixe em branco para manter a atual)</label>
       <input type="password" name="senha" class="form-control">
     </div>
+    @if (auth()->user()->isAdmin())
+      <div class="mb-3">
+        <label class="form-label">Tipo de acesso</label>
+        <select name="tipo" class="form-select">
+          <option value="aluno" @selected(old('tipo', $usuario->tipo) == 'aluno')>Aluno</option>
+          <option value="professor" @selected(old('tipo', $usuario->tipo) == 'professor')>Professor</option>
+          <option value="admin" @selected(old('tipo', $usuario->tipo) == 'admin')>Admin</option>
+        </select>
+      </div>
+    @endif
     <button class="btn btn-primary" type="submit">Atualizar</button>
+    <a class="btn btn-secondary" href="{{ route('usuarios.index') }}">Cancelar</a>
   </form>
 </section>
 @endsection

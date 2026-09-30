@@ -47,6 +47,7 @@
     
 
     <button class="btn btn-primary" type="submit">Salvar</button>
+    <a class="btn btn-secondary" href="{{ route('parceiros.index') }}">Cancelar</a>
   </form>
 </section>
 @endsection

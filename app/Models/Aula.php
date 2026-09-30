@@ -10,10 +10,10 @@ class Aula extends Model
     protected $table = 'aulas';
 
     protected $fillable = [
-        'nome', 
-        'descricao', 
-        'professor', 
-        'dia_da_semana', 
+        'nome',
+        'descricao',
+        'professor_id',
+        'dia_da_semana',
         'horario_de_inicio', 
         'horario_de_termino', 
         'capacidade', 

@@ -31,6 +31,7 @@
         @error('data_de_contratacao') <div class="text-danger small">{{ $message }}</div> @enderror
     </div>
     <button class="btn btn-primary" type="submit">Atualizar</button>
+    <a class="btn btn-secondary" href="{{ route('professores.index') }}">Cancelar</a>
   </form>
 </section>
 @endsection

@@ -29,7 +29,7 @@
          <form action="{{ route('exercicios.destroy', $exercicio) }}" method="POST" class="d-inline">
                 @csrf
                 @method('DELETE')
-                <button class="btn btn-outline-secondary btn-sm" onclick="return confirm('Excluir este usuário?')">Excluir</button>
+                <button class="btn btn-outline-secondary btn-sm" onclick="return confirm('Excluir este exercício?')">Excluir</button>
               </form>
       </td>
     </tr>

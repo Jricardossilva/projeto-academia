@@ -28,6 +28,7 @@
       @error('ativo') <div class="text-danger small">{{ $message }}</div> @enderror
     </div>
     <button class="btn btn-primary" type="submit">Salvar</button>
+    <a class="btn btn-secondary" href="{{ route('planos.index') }}">Cancelar</a>
   </form>
 </section>
 @endsection

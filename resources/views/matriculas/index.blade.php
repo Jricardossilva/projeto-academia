@@ -32,7 +32,7 @@
               <form action="{{ route('matriculas.destroy', $matricula) }}" method="POST" class="d-inline">
                 @csrf
                 @method('DELETE')
-                <button class="btn btn-outline-secondary btn-sm" onclick="return confirm('Excluir este cliente?')">Excluir</button>
+                <button class="btn btn-outline-secondary btn-sm" onclick="return confirm('Excluir esta matrícula?')">Excluir</button>
               </form>
             </td>
           </tr>

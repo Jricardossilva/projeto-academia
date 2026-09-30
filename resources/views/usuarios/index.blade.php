@@ -31,6 +31,7 @@
               @endif
             </td>
             <td class="text-end">
+              <a class="btn btn-outline-secondary btn-sm" href="{{ route('usuarios.show', $usuario) }}">Ver</a>
               <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#avaliacaoModal" data-usuario-id="{{ $usuario->id }}" data-usuario-nome="{{ $usuario->nome }}">
                 <i class="bi bi-clipboard2-pulse" aria-hidden="true"></i> Nova Avaliação
               </button>
@@ -67,6 +68,19 @@
 
           <h6 class="text-uppercase text-muted small fw-bold mb-3">Dados gerais</h6>
           <div class="row g-3 mb-4">
+            <div class="col-6">
+              <label for="data_avaliacao" class="form-label">Data da avaliação</label>
+              <input type="date" class="form-control" id="data_avaliacao" name="data_avaliacao" value="{{ now()->toDateString() }}">
+            </div>
+            <div class="col-6">
+              <label for="profissional_id" class="form-label">Profissional responsável</label>
+              <select class="form-select" id="profissional_id" name="profissional_id">
+                <option value="">Não informado</option>
+                @foreach ($profissionais as $profissional)
+                  <option value="{{ $profissional->id }}">{{ $profissional->nome }}</option>
+                @endforeach
+              </select>
+            </div>
             <div class="col-6">
               <label for="peso" class="form-label">Peso (kg)</label>
               <input type="number" step="0.1" min="0" class="form-control" id="peso" name="peso" required>

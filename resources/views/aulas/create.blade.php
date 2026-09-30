@@ -19,8 +19,13 @@
     </div>
     <div class="mb-3">
       <label class="form-label">Professor</label>
-      <input type="text" name="professor" class="form-control" value="{{ old('professor') }}">
-      @error('professor') <div class="text-danger small">{{ $message }}</div> @enderror
+      <select name="professor_id" class="form-select">
+        <option value="">Selecione...</option>
+        @foreach ($professores as $professor)
+          <option value="{{ $professor->id }}" @selected(old('professor_id') == $professor->id)>{{ $professor->nome }}</option>
+        @endforeach
+      </select>
+      @error('professor_id') <div class="text-danger small">{{ $message }}</div> @enderror
     </div>
     <div class="mb-3">
       <label class="form-label">dia da semana</label>
@@ -42,7 +47,13 @@
       <input type="text" name="capacidade" class="form-control" value="{{ old('capacidade') }}">
       @error('capacidade') <div class="text-danger small">{{ $message }}</div> @enderror
     </div>
+    <div class="mb-3 form-check">
+      <input type="hidden" name="ativo" value="0">
+      <input type="checkbox" name="ativo" value="1" class="form-check-input" id="ativo" @checked(old('ativo', true))>
+      <label class="form-check-label" for="ativo">Ativo</label>
+    </div>
     <button class="btn btn-primary" type="submit">Salvar</button>
+    <a class="btn btn-secondary" href="{{ route('aulas.index') }}">Cancelar</a>
   </form>
 </section>
 @endsection
