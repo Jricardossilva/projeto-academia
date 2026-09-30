@@ -12,11 +12,12 @@ class Usuario extends Authenticatable
     protected $table = 'usuarios';
 
     protected $fillable = [
-        'nome', 
-        'email', 
-        'cpf', 
-        'senha', 
-        'aceite_termos'
+        'nome',
+        'email',
+        'cpf',
+        'senha',
+        'aceite_termos',
+        'tipo',
     ];
     protected $casts = [
         'aceite_termos' => 'boolean',
@@ -38,14 +39,33 @@ class Usuario extends Authenticatable
         return $this->hasOne(FichaEsportiva::class);
     }
 
-    public function planos()
-    {
-        return $this->senha;
-    }
-
-
     public function matriculas()
     {
         return $this->hasMany(Matricula::class);
+    }
+
+    public function treinos()
+    {
+        return $this->hasMany(Treino::class);
+    }
+
+    public function avaliacoes()
+    {
+        return $this->hasMany(Avaliacao::class)->orderBy('data_avaliacao');
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->tipo === 'admin';
+    }
+
+    public function isProfessor(): bool
+    {
+        return $this->tipo === 'professor';
+    }
+
+    public function isAluno(): bool
+    {
+        return $this->tipo === 'aluno';
     }
 }

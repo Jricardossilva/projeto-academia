@@ -34,9 +34,18 @@
           </option>
         @endforeach
       </select>
-      @error('profissional_id') <div class="text-danger small">{{ $message }}</div> @enderror  
+      @error('profissional_id') <div class="text-danger small">{{ $message }}</div> @enderror
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Tipo</label>
+      <select name="tipo" class="form-control">
+        <option value="generico" @selected(old('tipo', 'generico') == 'generico')>Genérico</option>
+        <option value="especifico" @selected(old('tipo') == 'especifico')>Específico (requer avaliação prévia)</option>
+      </select>
+      @error('tipo') <div class="text-danger small">{{ $message }}</div> @enderror
     </div>
     <button class="btn btn-primary" type="submit">Salvar</button>
+    <a class="btn btn-secondary" href="{{ route('treinos.index') }}">Cancelar</a>
   </form>
 </section>
 @endsection

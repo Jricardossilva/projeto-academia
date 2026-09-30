@@ -17,5 +17,15 @@ class Profissional extends Model
         'aceite_termos'];
     protected $casts = [
         'aceite_termos' => 'boolean',
-    ]; 
+    ];
+
+    public function avaliacoes()
+    {
+        return $this->hasMany(Avaliacao::class);
+    }
+
+    public function treinos()
+    {
+        return $this->hasMany(Treino::class);
+    }
 }

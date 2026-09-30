@@ -6,7 +6,7 @@ use App\Models\Profissional;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash; 
 
-class Profissionalcontroller extends Controller
+class ProfissionalController extends Controller
 {
     public function index()
     {

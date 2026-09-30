@@ -35,7 +35,13 @@ class loginController extends Controller
         } 
         
         request()->session()->regenerate();
-        return redirect()->intended(route('usuarios.index'));
+
+        $usuario = Auth::user();
+        $destino = $usuario->tipo === 'aluno'
+            ? route('usuarios.show', $usuario)
+            : route('usuarios.index');
+
+        return redirect()->intended($destino);
 
     }   
 

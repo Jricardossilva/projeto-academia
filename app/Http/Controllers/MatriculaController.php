@@ -40,9 +40,12 @@ class MatriculaController extends Controller
 
     public function edit(Matricula $matricula)
     {
-        return view('matriculas.edit', [ 'usuarios' => Usuario::all() 
+        return view('matriculas.edit', [
+            'matricula' => $matricula,
+            'usuarios' => Usuario::all(),
+            'planos' => Planos::all(),
         ]);
-    } 
+    }
 
     public function update(Request $request, Matricula $matricula)
     {

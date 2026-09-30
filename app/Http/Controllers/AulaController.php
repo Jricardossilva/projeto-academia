@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Aula;
+use App\Models\Professor;
 
 class AulaController extends Controller
 {
@@ -12,7 +13,7 @@ class AulaController extends Controller
      */
     public function index()
     {
-        $aulas = Aula::all();
+        $aulas = Aula::with('professor')->get();
         return view('aulas.index', ['aulas' => $aulas]);
     }
 
@@ -21,7 +22,8 @@ class AulaController extends Controller
      */
     public function create()
     {
-        return view('aulas.create');
+        $professores = Professor::orderBy('nome')->get();
+        return view('aulas.create', ['professores' => $professores]);
     }
 
     /**
@@ -29,18 +31,18 @@ class AulaController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $dados = $request->validate([
             'nome' => 'required|string|max:255',
             'descricao' => 'required|string',
-            'professor' => 'required|string|max:255',
-            'dia_semana' => 'required|string|max:255',
-            'horario_inicio' => 'required|date_format:H:i',
-            'horario_fim' => 'required|date_format:H:i',
+            'professor_id' => 'required|exists:professores,id',
+            'dia_da_semana' => 'required|string|max:255',
+            'horario_de_inicio' => 'required|date_format:H:i',
+            'horario_de_termino' => 'required|date_format:H:i',
             'capacidade' => 'required|integer|min:1',
-            'status' => 'boolean'
+            'ativo' => 'boolean',
         ]);
 
-        Aula::create($request->all());
+        Aula::create($dados);
 
         return redirect()->route('aulas.index')->with('success', 'Aula criada com sucesso.');
     }
@@ -55,7 +57,8 @@ class AulaController extends Controller
     public function edit(string $id)
     {
         $aula = Aula::findOrFail($id);
-        return view('aulas.edit', ['aula' => $aula]);
+        $professores = Professor::orderBy('nome')->get();
+        return view('aulas.edit', ['aula' => $aula, 'professores' => $professores]);
     }
 
     /**
@@ -63,19 +66,19 @@ class AulaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $request->validate([
+        $dados = $request->validate([
             'nome' => 'required|string|max:255',
             'descricao' => 'required|string',
-            'professor' => 'required|string|max:255',
+            'professor_id' => 'required|exists:professores,id',
             'dia_da_semana' => 'required|string|max:255',
             'horario_de_inicio' => 'required|date_format:H:i',
             'horario_de_termino' => 'required|date_format:H:i',
             'capacidade' => 'required|integer|min:1',
-            'ativo' => 'boolean'
+            'ativo' => 'boolean',
         ]);
 
         $aula = Aula::findOrFail($id);
-        $aula->update($request->all());
+        $aula->update($dados);
 
         return redirect()->route('aulas.index')->with('success', 'Aula atualizada com sucesso.');
     }

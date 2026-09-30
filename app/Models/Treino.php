@@ -13,7 +13,9 @@ class Treino extends Model
     protected $fillable = [
         'usuario_id',
         'profissional_id',
-        'nome'
+        'nome',
+        'tipo',
+        'avaliacao_id',
     ];
 
     public function usuario()
@@ -24,6 +26,18 @@ class Treino extends Model
     public function profissional()
     {
         return $this->belongsTo(Profissional::class, 'profissional_id');
+    }
+
+    public function avaliacao()
+    {
+        return $this->belongsTo(Avaliacao::class);
+    }
+
+    public function exercicios()
+    {
+        return $this->belongsToMany(Exercicio::class, 'treino_exercicio')
+            ->withPivot('series', 'repeticoes', 'carga_kg', 'dia_semana')
+            ->withTimestamps();
     }
 }
 

@@ -11,6 +11,7 @@ class Avaliacao extends Model
     protected $fillable = [
         'usuario_id',
         'profissional_id',
+        'data_avaliacao',
         'peso',
         'altura',
         'biceps_direito',
@@ -22,6 +23,10 @@ class Avaliacao extends Model
         'panturrilha_direita',
         'panturrilha_esquerda',
         'cintura',
+    ];
+
+    protected $casts = [
+        'data_avaliacao' => 'date',
     ];
 
     public function usuario()
@@ -36,7 +41,7 @@ class Avaliacao extends Model
 
     public function proximaReavaliacao()
     {
-        return $this->data_avaliacao->copy()->addMonths(2);
+        return $this->data_avaliacao ? $this->data_avaliacao->copy()->addMonths(2) : null;
     }
 
 }

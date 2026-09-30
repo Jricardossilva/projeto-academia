@@ -37,6 +37,7 @@
       <textarea name="objetivos" class="form-control">{{ old('objetivos', $ficha->objetivos) }}</textarea>
     </div>
     <button class="btn btn-primary" type="submit">Atualizar</button>
+    <a class="btn btn-secondary" href="{{ route('fichas-esportivas.index') }}">Cancelar</a>
   </form>
 </section>
 @endsection

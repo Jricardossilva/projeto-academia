@@ -34,6 +34,7 @@
     </div>
     
     <button class="btn btn-primary" type="submit">Salvar</button>
+    <a class="btn btn-secondary" href="{{ route('professores.index') }}">Cancelar</a>
   </form>
 </section>
 @endsection

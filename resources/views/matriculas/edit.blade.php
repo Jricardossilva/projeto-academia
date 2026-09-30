@@ -33,6 +33,7 @@
         <input type="date" name="data_fim" class="form-control" value="{{ old('data_fim', $matricula->data_fim) }}">
         </div>
         <button class="btn btn-primary" type="submit">Atualizar</button>
+        <a class="btn btn-secondary" href="{{ route('matriculas.index') }}">Cancelar</a>
     </form>
 </section>
 @endsection

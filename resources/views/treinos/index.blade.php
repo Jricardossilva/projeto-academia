@@ -15,6 +15,7 @@
           <th>Usuário</th>
           <th>Profissional</th>
           <th>Nome</th>
+          <th>Tipo</th>
           <th class="text-end">Ações</th>
         </tr>
       </thead>
@@ -24,6 +25,11 @@
             <td>{{ $treino->usuario->nome }}</td>
             <td>{{ $treino->profissional->nome }}</td>
             <td>{{ $treino->nome }}</td>
+            <td>
+              <span class="badge {{ $treino->tipo === 'especifico' ? 'text-bg-success' : 'text-bg-secondary' }}">
+                {{ $treino->tipo === 'especifico' ? 'Específico' : 'Genérico' }}
+              </span>
+            </td>
             <td class="text-end">
               <a class="btn btn-light btn-sm" href="{{ route('treinos.edit', $treino) }}">Editar</a>
               <form action="{{ route('treinos.destroy', $treino) }}" method="POST" class="d-inline">

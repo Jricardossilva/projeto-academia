@@ -25,6 +25,7 @@
       <input type="checkbox" name="ativo" class="form-control" value="{{ old('ativo', $plano->ativo) }}">
     </div>
     <button class="btn btn-primary" type="submit">Atualizar</button>
+    <a class="btn btn-secondary" href="{{ route('planos.index') }}">Cancelar</a>
   </form>
 </section>
 @endsection 
