@@ -13,6 +13,10 @@
       <input type="text" name="nome" class="form-control" value="{{ old('nome', $plano->nome) }}">
     </div>
     <div class="mb-3">
+      <label class="form-label">Descrição</label>
+      <textarea name="descricao" class="form-control">{{ old('descricao', $plano->descricao) }}</textarea>
+    </div>
+    <div class="mb-3">
       <label class="form-label">Valor</label>
       <input type="number" name="valor" class="form-control" value="{{ old('valor', $plano->valor) }}">
     </div>
@@ -21,9 +25,10 @@
       <input type="text" name="duracao" class="form-control" value="{{ old('duracao', $plano->duracao) }}">
     </div>
     <div class="mb-3">
-      <label class="form-label">Ativo</label>
-      <input type="checkbox" name="ativo" class="form-control" value="{{ old('ativo', $plano->ativo) }}">
+      <label class="form-label">Benefícios</label>
+      <textarea name="beneficios" class="form-control">{{ old('beneficios', $plano->beneficios) }}</textarea>
     </div>
+    
     <button class="btn btn-primary" type="submit">Atualizar</button>
     <a class="btn btn-secondary" href="{{ route('planos.index') }}">Cancelar</a>
   </form>
