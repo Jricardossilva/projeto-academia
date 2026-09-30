@@ -18,16 +18,16 @@
     <aside class="admin-sidebar" id="adminSidebar" aria-label="Main navigation">
       <div class="sidebar-header">
         <a class="brand-mark" href="#" aria-label="{{ config('app.name', 'adminHMD') }}">
-          <span class="brand-icon"><i class="bi bi-grid-1x2-fill" aria-hidden="true"></i></span>
+          <span class="brand-icon"><img src="{{ asset('assets/images/png/logo123.png') }}" alt="{{ config('app.name', 'adminHMD') }}" width="30" height="30"></span>
           <span class="brand-copy">
             <span class="brand-title">{{ config('app.name', 'adminHMD') }}</span>
-            <span class="brand-subtitle">Admin Template</span>
+            @php $tipo = auth()->user()?->tipo; @endphp
+            <span class="brand-subtitle">{{ $tipo }}</span>
           </span>
         </a>
       </div>
 
       <nav class="sidebar-nav">
-        @php $tipo = auth()->user()?->tipo; @endphp
 
         @if ($tipo === 'aluno')
           <a class="nav-link" href="{{ route('usuarios.show', auth()->id()) }}">
