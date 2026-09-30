@@ -8,7 +8,7 @@ use App\Models\Matricula;
 class Planos extends Model
 {
     protected $table = 'planos';
-    protected $fillable = ['nome', 'descricao', 'duracao', 'valor', 'beneficios', 'ativo']; 
+    protected $fillable = ['nome', 'descricao', 'valor', 'descricao', 'beneficios']; 
     protected $casts = [
         'ativo' => 'boolean',
         'valor' => 'decimal:2',
