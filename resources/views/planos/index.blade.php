@@ -23,7 +23,7 @@
         @foreach ($planos as $plano)
           <tr>
             <td>{{ $plano->nome }}</td>
-            <td>{{ $plano->valor }}</td>
+            <td> R$ {{ number_format($plano->valor, 2, ',', '.') }}</td>
             <td>{{ $plano->duracao }}</td> 
             <td>{{ $plano->ativo ? 'Sim' : 'Não' }}</td>
            
