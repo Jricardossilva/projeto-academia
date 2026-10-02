@@ -28,6 +28,7 @@
             </div>
             
             <form class="login-form" id="loginForm" method="POST" action="{{ route('login.store') }}" novalidate>
+                @csrf
                 <div class="form-group">
                     <div class="input-wrapper">
                         <input type="email" id="email" name="email" required autocomplete="email">

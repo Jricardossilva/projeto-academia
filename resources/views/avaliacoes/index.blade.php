@@ -5,6 +5,7 @@
   <div class="panel-header">
     <div>
       <h2 class="h5 mb-1 section-title"><i class="bi bi-clipboard2-pulse" aria-hidden="true"></i><span>Avaliações</span></h2>
+      <small class="text-muted">Para registrar uma nova avaliação ou ver o gráfico de evolução de um aluno, use "Ver histórico" na linha dele, ou o botão "Nova Avaliação" na página do aluno em Usuários.</small>
     </div>
   </div>
   <div class="table-responsive">

@@ -141,9 +141,46 @@
       });
     }
 
+        function maskCpf(value) {
+      var d = value.replace(/\D/g, "").slice(0, 11);
+      return d
+        .replace(/^(\d{3})(\d)/, "$1.$2")
+        .replace(/^(\d{3})\.(\d{3})(\d)/, "$1.$2.$3")
+        .replace(/\.(\d{3})(\d)/, ".$1-$2");
+    }
+
+    function maskPhone(value) {
+      var d = value.replace(/\D/g, "").slice(0, 11);
+      if (d.length <= 10) {
+        return d
+          .replace(/^(\d{2})(\d)/, "($1) $2")
+          .replace(/(\d{4})(\d)/, "$1-$2");
+      }
+      return d
+        .replace(/^(\d{2})(\d)/, "($1) $2")
+        .replace(/(\d{5})(\d)/, "$1-$2");
+    }
+
+    function initMasks() {
+      var masks = { cpf: maskCpf, phone: maskPhone };
+
+      Array.prototype.forEach.call(document.querySelectorAll("[data-mask]"), function (input) {
+        var fn = masks[input.getAttribute("data-mask")];
+        if (!fn) return;
+
+        input.addEventListener("input", function () {
+          input.value = fn(input.value);
+        });
+
+        // aplica também ao valor que já vem preenchido (tela de edição / old())
+        if (input.value) input.value = fn(input.value);
+      });
+    }
+
     initValidation();
     initTableSearch();
     initThemeToggle();
+    initMasks();
 
     // Initialize user profile values in UI. Provide a window.adminHMDUser object to override defaults.
     function initUserProfile() {
