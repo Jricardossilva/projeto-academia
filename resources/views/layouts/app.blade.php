@@ -21,7 +21,10 @@
           <span class="brand-icon"><img src="{{ asset('assets/images/png/logo123.png') }}" alt="{{ config('app.name', 'adminHMD') }}" width="30" height="30"></span>
           <span class="brand-copy">
             <span class="brand-title">{{ config('app.name', 'adminHMD') }}</span>
-            @php $tipo = auth()->user()?->tipo; @endphp
+            @php 
+              $tipo = auth()->user()?->tipo; 
+              $nomeUsuario = auth()->user()?->nome;
+            @endphp
             <span class="brand-subtitle">{{ $tipo }}</span>
           </span>
         </a>
@@ -87,11 +90,21 @@
         @endif
       </nav>
 
-      <div class="sidebar-user">
-        <img class="avatar-img avatar-md sidebar-user-avatar" src="{{ asset('assets/images/avatar/avatar.jpg') }}" alt="Admin">
-        
-        <small>Active Workspace</small>
-      </div>
+      <script>
+        window.adminHMDUser = {
+          name: @json(auth()->user()?->nome ?? ''),
+          workspace: @json(auth()->user()?->nome ?? ''),
+          avatar: null
+        };
+        </script>
+        <div class="sidebar-user">
+       
+          <span class= "avatar-initial avatar-md sidebar-user-avatar" aria-hidden="true">{{ substr($nomeUsuario, 0, 1) }}</span>
+          <div>
+          <small>{{ $nomeUsuario }}</small>
+          </div>
+        </div>
+
 
       <div class="sidebar-footer">
         <span class="status-dot"></span>
@@ -108,9 +121,9 @@
             <span></span>
           </button>
 
-          <form class="d-none d-md-flex ms-3 flex-grow-1" role="search">
-            <input class="form-control search-input" type="search" placeholder="Search" aria-label="Search">
-          </form>
+        
+            
+          
 
           <div class="navbar-actions ms-auto">
             <button class="icon-button theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme" title="Switch color theme">
@@ -128,14 +141,15 @@
 
             <div class="dropdown">
               <button class="profile-button dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <img class="avatar-img avatar-sm" src="{{ asset('assets/images/avatar/avatar.jpg') }}" alt="Admin">
+
+                <span class="avatar-img avatar-sm" aria-hidden="true">{{ substr($nomeUsuario, 0, 1) }}</span>
                 
               </button>
               <ul class="dropdown-menu dropdown-menu-end">
                 <li>
                     <form method="POST" action="{{ route('login.destroy') }}">
                         @csrf
-                        <button type="submit" class="dropdown-item">Sign out</button>
+                        <button type="submit" class="dropdown-item">Sair</button>
                     </form>
                 </li>
               </ul>

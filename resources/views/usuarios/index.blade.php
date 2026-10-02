@@ -9,13 +9,13 @@
     <a class="btn btn-primary btn-sm" href="{{ route('usuarios.create') }}">Novo Usuário</a>
   </div>
   <div class="table-responsive">
-    <table class="table align-middle mb-0">
+    <table class="table align-middle text-center mb-0">
       <thead>
         <tr>
           <th>Nome</th>
           <th>E-mail</th>
-          <th>Termos</th>
-          <th class="text-end">Ações</th>
+          <th>Tipo</th>
+          <th>Ações</th>
         </tr>
       </thead>
       <tbody>
@@ -24,10 +24,14 @@
             <td>{{ $usuario->nome }}</td>
             <td>{{ $usuario->email }}</td>
             <td>
-              @if ($usuario->aceite_termos)
-                <span class="badge text-bg-success">Aceito</span>
+              @if ($usuario->tipo === 'admin')
+                <span class="badge bg-primary">Administrador</span>
+              @elseif ($usuario->tipo === 'professor')
+                <span class="badge bg-success">Professor</span>
+              @elseif ($usuario->tipo === 'aluno')
+                <span class="badge bg-info">Aluno</span>
               @else
-                <span class="badge text-bg-secondary">Pendente</span>
+                <span class="badge bg-secondary">{{ ucfirst($usuario->tipo) }}</span>
               @endif
             </td>
             <td class="text-end">

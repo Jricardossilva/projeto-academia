@@ -7,6 +7,15 @@
   </div>
   <form method="POST" action="{{ route('professores.update', $professor) }}" class="p-3">
     @csrf
+    @if ($errors->any())
+      <div class="alert alert-danger">
+        <ul>
+          @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+          @endforeach
+        </ul>
+      </div>
+    @endif
     @method('PUT')
     <div class="mb-3">
       <label class="form-label">Nome</label>
@@ -17,7 +26,7 @@
       <input type="email" name="email" class="form-control" value="{{ old('email', $professor->email) }}">
     </div>
     <div class="mb-3">
-      <label class="form-label">telefone</label>
+      <label class="form-label">Telefone</label>
       <input type="text" name="telefone" class="form-control" value="{{ old('telefone', $professor->telefone) }}">
     </div>
     <div class="mb-3">
@@ -26,7 +35,7 @@
     </div>
 
     <div class="mb-3">
-        <label class="form-label">data_de_contratacao</label>
+        <label class="form-label">Data de Contratação</label>
         <input type="date" name="data_de_contratacao" class="form-control" value="{{ old('data_de_contratacao', $professor->data_de_contratacao) }}">
         @error('data_de_contratacao') <div class="text-danger small">{{ $message }}</div> @enderror
     </div>

@@ -7,6 +7,15 @@
   </div>
   <form method="POST" action="{{ route('parceiros.update', $parceiro) }}" class="p-3">
     @csrf
+    @if ($errors->any())
+      <div class="alert alert-danger">
+        <ul>
+          @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+          @endforeach
+        </ul>
+      </div>
+    @endif
     @method('PUT')
 
     <div class="mb-3">
