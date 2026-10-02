@@ -23,8 +23,16 @@
     </div>
 
     <div class="mb-3">
-      <label class="form-label">Celular</label>
-      <input type="text" name="celular" class="form-control" value="{{ old('celular') }}">
+      <label for="celular" class="form-label">Celular</label>
+      <input type="text"
+      id="celular"
+       name="celular"
+        class="form-control"
+        data-mask="phone"
+        inputmode="tel"
+        maxlenght="15"
+        placeholder="(00) 00000-0000"
+        value="{{ old('celular') }}">
     </div>
     <div class="mb-3">
       <label class="form-label">Número de registro</label>

@@ -26,8 +26,16 @@
       <input type="email" name="email" class="form-control" value="{{ old('email', $usuario->email) }}">
     </div>
     <div class="mb-3">
-      <label class="form-label">CPF</label>
-      <input type="text" name="cpf" class="form-control" value="{{ old('cpf', $usuario->cpf) }}">
+      <label for="cpf"class="form-label">CPF</label>
+      <input type="text"
+       id="cpf"
+       name="cpf"
+       class="form-control"
+       data-mask="cpf"
+       inputmode="numeric"
+       maxlenght="14"
+       placeholder="000.000.000-00"
+       value="{{ old('cpf', $usuario->cpf) }}">
     </div>
     <div class="mb-3">
       <label class="form-label">Nova senha (deixe em branco para manter a atual)</label>

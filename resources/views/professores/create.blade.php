@@ -27,8 +27,16 @@
       @error('email') <div class="text-danger small">{{ $message }}</div> @enderror
     </div>
     <div class="mb-3">
-      <label class="form-label">Telefone</label>
-      <input type="text" name="telefone" class="form-control" value="{{ old('telefone') }}">
+      <label for="telefone" class="form-label">Telefone</label>
+      <input type="text"
+       id="telefone"
+       name="telefone"
+        class="form-control"
+        data-mask="phone"
+        inputmode="tel"
+        maxlenght="15"
+        placeholder="(00) 00000-0000"
+        value="{{ old('telefone') }}">
       @error('telefone') <div class="text-danger small">{{ $message }}</div> @enderror
     </div>
     <div class="mb-3">
