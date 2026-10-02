@@ -61,7 +61,70 @@ class UsuarioController extends Controller
             'treinoAtual' => $treinoAtual,
             'matriculaAtiva' => $usuario->matriculas->firstWhere('status', 'ativa') ?? $usuario->matriculas->last(),
             'profissionais' => Profissional::orderBy('nome')->get(),
+            'evolucao' => $this->dadosEvolucao($usuario),
         ]);
+    }
+
+    /**
+     * Monta as séries e estatísticas usadas pelos gráficos de evolução do aluno.
+     */
+    private function dadosEvolucao(Usuario $usuario): ?array
+    {
+        $avaliacoes = $usuario->avaliacoes;
+
+        if ($avaliacoes->count() < 2) {
+            return null;
+        }
+
+        $imc = fn ($a) => $a->altura ? round($a->peso / ($a->altura ** 2), 1) : null;
+
+        $primeira = $avaliacoes->first();
+        $ultima = $avaliacoes->last();
+
+        $medidas = [
+            'biceps_direito' => 'Bíceps D',
+            'biceps_esquerdo' => 'Bíceps E',
+            'antebraco_direito' => 'Antebraço D',
+            'antebraco_esquerdo' => 'Antebraço E',
+            'coxa_direita' => 'Coxa D',
+            'coxa_esquerda' => 'Coxa E',
+            'panturrilha_direita' => 'Panturrilha D',
+            'panturrilha_esquerda' => 'Panturrilha E',
+            'cintura' => 'Cintura',
+        ];
+
+        return [
+            'series' => [
+                'labels' => $avaliacoes->map(fn ($a) => optional($a->data_avaliacao)->format('d/m/Y'))->values(),
+                'peso' => $avaliacoes->map(fn ($a) => $a->peso)->values(),
+                'imc' => $avaliacoes->map($imc)->values(),
+                'cintura' => $avaliacoes->map(fn ($a) => $a->cintura)->values(),
+                'biceps_direito' => $avaliacoes->map(fn ($a) => $a->biceps_direito)->values(),
+                'biceps_esquerdo' => $avaliacoes->map(fn ($a) => $a->biceps_esquerdo)->values(),
+                'antebraco_direito' => $avaliacoes->map(fn ($a) => $a->antebraco_direito)->values(),
+                'antebraco_esquerdo' => $avaliacoes->map(fn ($a) => $a->antebraco_esquerdo)->values(),
+                'coxa_direita' => $avaliacoes->map(fn ($a) => $a->coxa_direita)->values(),
+                'coxa_esquerda' => $avaliacoes->map(fn ($a) => $a->coxa_esquerda)->values(),
+                'panturrilha_direita' => $avaliacoes->map(fn ($a) => $a->panturrilha_direita)->values(),
+                'panturrilha_esquerda' => $avaliacoes->map(fn ($a) => $a->panturrilha_esquerda)->values(),
+            ],
+            'comparativo' => [
+                'labels' => array_values($medidas),
+                'primeira' => array_map(fn ($campo) => $primeira->{$campo}, array_keys($medidas)),
+                'ultima' => array_map(fn ($campo) => $ultima->{$campo}, array_keys($medidas)),
+            ],
+            'stats' => [
+                'total' => $avaliacoes->count(),
+                'periodo_inicio' => optional($primeira->data_avaliacao)->format('d/m/Y'),
+                'periodo_fim' => optional($ultima->data_avaliacao)->format('d/m/Y'),
+                'peso_atual' => $ultima->peso,
+                'peso_delta' => round($ultima->peso - $primeira->peso, 1),
+                'imc_atual' => $imc($ultima),
+                'imc_delta' => $imc($ultima) !== null && $imc($primeira) !== null ? round($imc($ultima) - $imc($primeira), 1) : null,
+                'cintura_atual' => $ultima->cintura,
+                'cintura_delta' => ($ultima->cintura !== null && $primeira->cintura !== null) ? round($ultima->cintura - $primeira->cintura, 1) : null,
+            ],
+        ];
     }
 
     public function edit(Usuario $usuario)
