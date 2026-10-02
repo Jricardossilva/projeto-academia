@@ -7,75 +7,69 @@ use App\Models\Planos;
 
 class PlanoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $planos = Planos::all();
         return view('planos.index', ['planos' => $planos]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('planos.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        $request->validate([
-            'nome' => 'required|string',
-            'descricao' => 'required|string',
-            'valor' => 'required|min:5',
-            'duracao' => 'required|integer',
-            'beneficios' => 'required|string'
-        ]);
+        $this->normalizarValor($request);
 
-        Planos::create($request->all());
+        $dados = $request->validate($this->regras());
+
+        Planos::create($dados);
 
         return redirect()->route('planos.index')->with('success', 'Plano criado com sucesso!');
     }
 
-    
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Planos $plano)
     {
         return view('planos.edit', ['plano' => $plano]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Planos $plano)
     {
-        $request->validate([
-            'nome' => 'required|string',
-            'descricao' => 'required|string',
-            'valor' => 'required|min:5',
-            'duracao' => 'required|integer',
-            'beneficios' => 'required|string'
-        ]);
+        $this->normalizarValor($request);
 
-        $plano->update($request->all());
+        $dados = $request->validate($this->regras());
+
+        $plano->update($dados);
 
         return redirect()->route('planos.index')->with('success', 'Plano atualizado com sucesso!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Planos $plano)
     {
         $plano->delete();
         return redirect()->route('planos.index')->with('success', 'Plano removido com sucesso!');
     }
-}
 
+    private function regras(): array
+    {
+        return [
+            'nome' => 'required|string',
+            'descricao' => 'required|string',
+            'valor' => 'required|numeric|min:0.01',
+            'duracao' => 'required|integer',
+            'beneficios' => 'required|string',
+        ];
+    }
+
+    /**
+     * Converte "R$ 1.234,56" em "1234.56" antes da validação.
+     */
+    private function normalizarValor(Request $request): void
+    {
+        $valor = preg_replace('/[^\d,]/', '', (string) $request->valor); // "1234,56"
+        $valor = str_replace(',', '.', $valor);                          // "1234.56"
+
+        $request->merge(['valor' => $valor !== '' ? $valor : null]);
+    }
+}

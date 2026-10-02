@@ -161,8 +161,18 @@
         .replace(/(\d{5})(\d)/, "$1-$2");
     }
 
+        function maskMoney(value) {
+      var d = value.replace(/\D/g, "").slice(0, 10);
+      if (d === "") return "";
+      var number = parseInt(d, 10) / 100;
+      return "R$ " + number.toLocaleString("pt-BR", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      });
+    }
+
     function initMasks() {
-      var masks = { cpf: maskCpf, phone: maskPhone };
+      var masks = { cpf: maskCpf, phone: maskPhone, money: maskMoney };
 
       Array.prototype.forEach.call(document.querySelectorAll("[data-mask]"), function (input) {
         var fn = masks[input.getAttribute("data-mask")];
