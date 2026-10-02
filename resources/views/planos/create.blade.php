@@ -18,8 +18,14 @@
       @error('descricao') <div class="text-danger small">{{ $message }}</div> @enderror
     </div>
     <div class="mb-3">
-      <label class="form-label">valor</label>
-      <input type="number" name="valor" class="form-control" value="{{ old('valor') }}">
+      <label for="valor" class="form-label">Valor</label>
+      <input type="text"
+      id="valor"
+       name="valor"
+        class="form-control"
+        data-mask="money"
+        inputmode="numeric"
+        placeholder="R$ 0,00" value="{{ old('valor') }}">
       @error('valor') <div class="text-danger small">{{ $message }}</div> @enderror
     </div>
     <div class="mb-3">

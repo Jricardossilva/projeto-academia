@@ -17,8 +17,14 @@
       <textarea name="descricao" class="form-control">{{ old('descricao', $plano->descricao) }}</textarea>
     </div>
     <div class="mb-3">
-      <label class="form-label">Valor</label>
-      <input type="number" name="valor" class="form-control" value="{{ old('valor', $plano->valor) }}">
+      <label for="valor"  class="form-label">Valor</label>
+      <input type="text"
+      id="valor"
+       name="valor"
+        class="form-control"
+        data-mask="money"
+        inputmode="numeric"
+        placeholder="R$ 0,00" value="{{ old('valor', $plano->valor) }}">
     </div>
     <div class="mb-3">
       <label class="form-label">Duração</label>

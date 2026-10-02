@@ -7,6 +7,15 @@
   </div>
   <form method="POST" action="{{ route('usuarios.store') }}" class="p-3">
     @csrf
+    @if ($errors->any())
+      <div class="alert alert-danger">
+        <ul>
+          @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+          @endforeach
+        </ul>
+      </div>
+    @endif
     <div class="mb-3">
       <label class="form-label">Nome</label>
       <input type="text" name="nome" class="form-control" value="{{ old('nome') }}">
@@ -18,8 +27,16 @@
       @error('email') <div class="text-danger small">{{ $message }}</div> @enderror
     </div>
     <div class="mb-3">
-      <label class="form-label">CPF</label>
-      <input type="text" name="cpf" class="form-control" value="{{ old('cpf') }}">
+      <label for="cpf" class="form-label">CPF</label>
+      <input type="text"
+      id="cpf"
+       name="cpf"
+        class="form-control"
+        data-mask="cpf"
+        imputmode="numeric"
+        maxlenght="14"
+       placeholder="000.000.000-00"
+        value="{{ old('cpf') }}">
       @error('cpf') <div class="text-danger small">{{ $message }}</div> @enderror
     </div>
     <div class="mb-3">

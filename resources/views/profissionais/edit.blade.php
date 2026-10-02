@@ -7,14 +7,31 @@
   </div>
   <form method="POST" action="{{ route('profissionais.update', $profissional) }}" class="p-3">
     @csrf
+    @if ($errors->any())
+      <div class="alert alert-danger">
+        <ul>
+          @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+          @endforeach
+        </ul>
+      </div>
+    @endif
     @method('PUT')
     <div class="mb-3">
       <label class="form-label">Nome</label>
       <input type="text" name="nome" class="form-control" value="{{ old('nome', $profissional->nome) }}">
     </div>
     <div class="mb-3">
-      <label class="form-label">Celular</label>
-      <input type="text" name="celular" class="form-control" value="{{ old('celular', $profissional->celular) }}">
+      <label for="celular" class="form-label">Celular</label>
+      <input type="text"
+       id="celular"
+       name="celular"
+        class="form-control"
+        data-mask="phone"
+        inputmode="tel"
+        maxlenght="15"
+        placeholder="(00) 00000-0000"
+        value="{{ old('celular', $profissional->celular) }}">
     </div>
     <div class="mb-3">
       <label class="form-label">Número de registro</label>
