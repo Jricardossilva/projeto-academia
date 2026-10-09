@@ -20,6 +20,7 @@ use App\Http\Controllers\AulaController;
     Route::middleware('guest')->group(function () {
         Route::get('/', [loginController::class, 'index'])->name('login.index');
         Route::post('/login', [loginController::class, 'store'])->name('login.store');
+        Route::get('/equipe', [loginController::class, 'show'])->name('login.show');
     });
 
     Route::middleware('auth')->group(function () {

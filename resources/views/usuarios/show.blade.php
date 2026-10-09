@@ -83,7 +83,7 @@
   @if ($evolucao)
     @php $s = $evolucao['stats']; @endphp
     <div class="row g-3 p-3 pb-0">
-      <div class="col-6 col-lg-3">
+      <div class="col-6 col-lg-4">
         <div class="border rounded p-3 h-100">
           <div class="text-uppercase text-muted small fw-bold">Peso atual</div>
           <div class="fs-4 fw-semibold">{{ $s['peso_atual'] }} kg</div>
@@ -92,18 +92,7 @@
           </div>
         </div>
       </div>
-      <div class="col-6 col-lg-3">
-        <div class="border rounded p-3 h-100">
-          <div class="text-uppercase text-muted small fw-bold">IMC atual</div>
-          <div class="fs-4 fw-semibold">{{ $s['imc_atual'] ?? '—' }}</div>
-          @if ($s['imc_delta'] !== null)
-            <div class="small {{ $s['imc_delta'] > 0 ? 'text-danger' : ($s['imc_delta'] < 0 ? 'text-success' : 'text-muted') }}">
-              {{ $s['imc_delta'] > 0 ? '▲' : ($s['imc_delta'] < 0 ? '▼' : '—') }} {{ abs($s['imc_delta']) }} desde a 1ª avaliação
-            </div>
-          @endif
-        </div>
-      </div>
-      <div class="col-6 col-lg-3">
+      <div class="col-6 col-lg-4">
         <div class="border rounded p-3 h-100">
           <div class="text-uppercase text-muted small fw-bold">Cintura atual</div>
           <div class="fs-4 fw-semibold">{{ $s['cintura_atual'] ?? '—' }} cm</div>
@@ -114,7 +103,7 @@
           @endif
         </div>
       </div>
-      <div class="col-6 col-lg-3">
+      <div class="col-6 col-lg-4">
         <div class="border rounded p-3 h-100">
           <div class="text-uppercase text-muted small fw-bold">Período acompanhado</div>
           <div class="fs-5 fw-semibold">{{ $s['periodo_inicio'] }} — {{ $s['periodo_fim'] }}</div>

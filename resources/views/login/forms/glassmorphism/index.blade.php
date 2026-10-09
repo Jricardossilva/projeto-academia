@@ -63,9 +63,12 @@
             </div>
 
             <div class="social-login">
-                <button type="button" class="social-btn google-btn">
-                    <span class="social-icon google-icon"></span>
-                    Google
+                
+                <button type="button" class="social-btn github-btn">
+                    <a href="{{ route('login.show') }}" target="_blank" rel="noopener noreferrer">
+                        <span class="social-icon google-icon"></span>
+                        Google
+                    </a>
                 </button>
                 
                 <a href="https://github.com/Jricardossilva/projeto-academia" class="social-btn github-btn" target="_blank" rel="noopener noreferrer">
