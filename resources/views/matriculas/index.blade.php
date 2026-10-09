@@ -25,8 +25,8 @@
           <tr>
             <td>{{ $matricula->usuario->nome }}</td>
             <td>{{ $matricula->plano->nome }}</td>
-            <td>{{ $matricula->data_inicio }}</td>
-            <td>{{ $matricula->data_fim }}</td>
+            <td>{{ \Carbon\Carbon::parse($matricula->data_inicio)->format('d/m/Y') }}</td>
+            <td>{{ \Carbon\Carbon::parse($matricula->data_fim)->format('d/m/Y') }}</td>
             <td class="text-end">
               <a class="btn btn-light btn-sm" href="{{ route('matriculas.edit', $matricula) }}">Editar</a>
               <form action="{{ route('matriculas.destroy', $matricula) }}" method="POST" class="d-inline">
