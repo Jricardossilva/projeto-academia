@@ -14,7 +14,7 @@ class UsuarioController extends Controller
     public function index()
     {
         $usuarios = Usuario::all();
-        $profissionais = Profissional::orderBy('nome')->get();
+        $profissionais = Profissional::orderBy('nome')->get();        
         return view('usuarios.index', ['usuarios' => $usuarios, 'profissionais' => $profissionais]);
     }
 

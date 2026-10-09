@@ -33,16 +33,7 @@ Route::middleware(['auth', 'role:admin,professor'])->group(function () {
     Route::resource('fichas-esportivas', FichaEsportivaController::class)
         ->parameters(['fichas-esportivas' => 'ficha']);
 
-    Route::controller(ProfessorController::class)->group(function () {
-        Route::get('/professores', 'index')->name('professores.index');
-        Route::get('/professores/create', 'create')->name('professores.create');
-        Route::post('/professores', 'store')->name('professores.store');
-        Route::get('/professores/{professor}', 'show')->name('professores.show');
-        Route::get('/professores/{professor}/edit', 'edit')->name('professores.edit');
-        Route::put('/professores/{professor}', 'update')->name('professores.update');
-        Route::patch('/professores/{professor}', 'update')->name('professores.update');
-        Route::delete('/professores/{professor}', 'destroy')->name('professores.destroy');
-    });
+    
 
     Route::controller(TreinoController::class)->group(function () {
         Route::get('/treinos', 'index')->name('treinos.index');
@@ -68,16 +59,7 @@ Route::middleware(['auth', 'role:admin,professor'])->group(function () {
         Route::delete('/exercicios/{exercicio}', 'destroy')->name('exercicios.destroy');
     });
 
-    Route::controller(AulaController::class)->group(function () {
-        Route::get('/aulas', 'index')->name('aulas.index');
-        Route::get('/aulas/create', 'create')->name('aulas.create');
-        Route::post('/aulas', 'store')->name('aulas.store');
-        Route::get('/aulas/{aula}', 'show')->name('aulas.show');
-        Route::get('/aulas/{aula}/edit', 'edit')->name('aulas.edit');
-        Route::put('/aulas/{aula}', 'update')->name('aulas.update');
-        Route::patch('/aulas/{aula}', 'update')->name('aulas.update');
-        Route::delete('/aulas/{aula}', 'destroy')->name('aulas.destroy');
-    });
+    
 
     Route::controller(AvaliacaoController::class)->group(function () {
         Route::get('/avaliacoes', 'index')->name('avaliacoes.index');
@@ -91,6 +73,7 @@ Route::middleware(['auth', 'role:admin,professor'])->group(function () {
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::resource('matriculas', MatriculaController::class)
         ->parameters(['matriculas' => 'matricula']);
+        
 
     Route::controller(PlanoController::class)->group(function () {
         Route::get('/planos', 'index')->name('planos.index');
@@ -124,6 +107,30 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::patch('/profissionais/{profissional}', 'update')->name('profissionais.update');
         Route::delete('/profissionais/{profissional}', 'destroy')->name('profissionais.destroy');
     });
+
+    Route::controller(AulaController::class)->group(function () {
+        Route::get('/aulas', 'index')->name('aulas.index');
+        Route::get('/aulas/create', 'create')->name('aulas.create');
+        Route::post('/aulas', 'store')->name('aulas.store');
+        Route::get('/aulas/{aula}', 'show')->name('aulas.show');
+        Route::get('/aulas/{aula}/edit', 'edit')->name('aulas.edit');
+        Route::put('/aulas/{aula}', 'update')->name('aulas.update');
+        Route::patch('/aulas/{aula}', 'update')->name('aulas.update');
+        Route::delete('/aulas/{aula}', 'destroy')->name('aulas.destroy');
+    });
+
+    Route::controller(ProfessorController::class)->group(function () {
+        Route::get('/professores', 'index')->name('professores.index');
+        Route::get('/professores/create', 'create')->name('professores.create');
+        Route::post('/professores', 'store')->name('professores.store');
+        Route::get('/professores/{professor}', 'show')->name('professores.show');
+        Route::get('/professores/{professor}/edit', 'edit')->name('professores.edit');
+        Route::put('/professores/{professor}', 'update')->name('professores.update');
+        Route::patch('/professores/{professor}', 'update')->name('professores.update');
+        Route::delete('/professores/{professor}', 'destroy')->name('professores.destroy');
+    });
+
+
 });
 
 // Acessível a qualquer usuário autenticado: cada um só enxerga sua própria página

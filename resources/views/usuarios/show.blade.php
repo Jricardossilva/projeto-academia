@@ -190,7 +190,7 @@
         <tr>
           <th>Data</th>
           <th>Peso (kg)</th>
-          <th>Altura (m)</th>
+          <th>Altura (cm)</th>
           <th>Cintura (cm)</th>
           <th>Bíceps D/E</th>
           <th>Antebraço D/E</th>
@@ -267,8 +267,8 @@
               <input type="number" step="0.1" min="0" class="form-control" name="peso" required>
             </div>
             <div class="col-6">
-              <label class="form-label">Altura (m)</label>
-              <input type="number" step="0.1" min="0" class="form-control" name="altura" required>
+              <label class="form-label">Altura (cm)</label>
+              <input type="number" step="0.01" min="0" class="form-control" name="altura" required>
             </div>
             <div class="col-6">
               <label class="form-label">Cintura (cm)</label>
