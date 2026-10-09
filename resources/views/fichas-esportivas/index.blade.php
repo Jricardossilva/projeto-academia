@@ -5,21 +5,14 @@
   <div class="panel-header">
     <div>
       <h2 class="h5 mb-1 section-title"><i class="bi bi-clipboard2-pulse" aria-hidden="true"></i><span>Fichas Esportivas</span></h2>
-      <p class="text-muted mb-0">Lista de fichas cadastradas.</p>
+      
     </div>
     <a class="btn btn-primary btn-sm" href="{{ route('fichas-esportivas.create') }}">Nova Ficha</a>
   </div>
   <div class="table-responsive">
-    <form method="GET" class="d-flex gap-2 mb-3">
+  
       
-      <select name="nivel" class="form-control" style="max-width: 220px">
-        <option value="">Todos os níveis</option>
-        <option value="iniciante" @selected(request('nivel') == 'iniciante')>Iniciante</option>
-        <option value="intermediario" @selected(request('nivel') == 'intermediario')>Intermediário</option>
-        <option value="avancado" @selected(request('nivel') == 'avancado')>Avançado</option>
-      </select>
-      <button class="btn btn-outline-secondary btn-sm" type="submit">Filtrar</button>
-    </form>
+      
     <table class="table align-middle mb-0">
       <thead>
         <tr>
