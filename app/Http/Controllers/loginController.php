@@ -55,5 +55,10 @@ class loginController extends Controller
         request()->session()->regenerateToken();
         return redirect()->route('login.index');
     }
+
+    public function show()
+    {
+        return view('layouts.equipe');
+    }
 }
  
