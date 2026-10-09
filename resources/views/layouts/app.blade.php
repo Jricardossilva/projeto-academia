@@ -108,7 +108,7 @@
 
       <div class="sidebar-footer">
         <span class="status-dot"></span>
-        <span class="sidebar-footer-text">System running smoothly</span>
+        <span class="sidebar-footer-text">Em execução</span>
       </div>
     </aside>
 
