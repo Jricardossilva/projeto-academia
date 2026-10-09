@@ -16,7 +16,7 @@
           <th>Aluno</th>
           <th>Profissional</th>
           <th>Peso (kg)</th>
-          <th>Altura (m)</th>
+          <th>Altura (cm)</th>
           <th class="text-end">Ações</th>
         </tr>
       </thead>

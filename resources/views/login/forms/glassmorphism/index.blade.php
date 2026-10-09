@@ -67,10 +67,11 @@
                     <span class="social-icon google-icon"></span>
                     Google
                 </button>
-                <button type="button" class="social-btn github-btn">
+                
+                <a href="https://github.com/Jricardossilva/projeto-academia" class="social-btn github-btn" target="_blank" rel="noopener noreferrer">
                     <span class="social-icon github-icon"></span>
                     GitHub
-                </button>
+                </a>
             </div>
 
             <div class="signup-link">
