@@ -27,8 +27,8 @@
         placeholder="R$ 0,00" value="{{ old('valor', $plano->valor) }}">
     </div>
     <div class="mb-3">
-      <label class="form-label">Duração</label>
-      <input type="text" name="duracao" class="form-control" value="{{ old('duracao', $plano->duracao) }}">
+      <label class="form-label">Duração (em meses)</label>
+      <input type="number" name="duracao" class="form-control" value="{{ old('duracao', $plano->duracao) }}">
     </div>
     <div class="mb-3">
       <label class="form-label">Benefícios</label>

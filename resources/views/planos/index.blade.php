@@ -24,7 +24,7 @@
           <tr>
             <td>{{ $plano->nome }}</td>
             <td> R$ {{ number_format($plano->valor, 2, ',', '.') }}</td>
-            <td>{{ $plano->duracao }}</td> 
+            <td>{{ $plano->duracao }} meses</td> 
             <td>{{ $plano->ativo ? 'Sim' : 'Não' }}</td>
            
             <td class="text-end">

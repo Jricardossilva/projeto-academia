@@ -6,7 +6,14 @@
     <div>
       <h2 class="h5 mb-1 section-title"><i class="bi bi-people" aria-hidden="true"></i><span>Usuários</span></h2>
     </div>
-    <a class="btn btn-primary btn-sm" href="{{ route('usuarios.create') }}">Novo Usuário</a>
+    @php
+      $usuario_logado = auth()->user();
+      $tipo_usuario_logado = $usuario_logado->tipo;
+    @endphp
+    @if ($tipo_usuario_logado === 'admin')
+      <a class="btn btn-primary btn-sm" href="{{ route('usuarios.create') }}">Novo Usuário</a>      
+    @endif    
+
   </div>
   <div class="table-responsive">
     <table class="table align-middle text-center mb-0">
@@ -20,6 +27,7 @@
       </thead>
       <tbody>
         @foreach ($usuarios as $usuario)
+
           <tr>
             <td>{{ $usuario->nome }}</td>
             <td>{{ $usuario->email }}</td>
@@ -39,12 +47,15 @@
               <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#avaliacaoModal" data-usuario-id="{{ $usuario->id }}" data-usuario-nome="{{ $usuario->nome }}">
                 <i class="bi bi-clipboard2-pulse" aria-hidden="true"></i> Nova Avaliação
               </button>
-              <a class="btn btn-light btn-sm" href="{{ route('usuarios.edit', $usuario) }}">Editar</a>
-              <form action="{{ route('usuarios.destroy', $usuario) }}" method="POST" class="d-inline">
-                @csrf
-                @method('DELETE')
-                <button class="btn btn-outline-secondary btn-sm" onclick="return confirm('Excluir este usuário?')">Excluir</button>
-              </form>
+              @if ($tipo_usuario_logado === 'admin')
+                <a class="btn btn-light btn-sm" href="{{ route('usuarios.edit', $usuario) }}">Editar</a>
+              
+                <form action="{{ route('usuarios.destroy', $usuario) }}" method="POST" class="d-inline">
+                  @csrf
+                  @method('DELETE')
+                  <button class="btn btn-outline-secondary btn-sm" onclick="return confirm('Excluir este usuário?')">Excluir</button>
+                </form>
+              @endif
             </td>
           </tr>
         @endforeach
@@ -90,7 +101,7 @@
               <input type="number" step="0.1" min="0" class="form-control" id="peso" name="peso" required>
             </div>
             <div class="col-6">
-              <label for="altura" class="form-label">Altura (m)</label>
+              <label for="altura" class="form-label">Altura (cm)</label>
               <input type="number" step="0.1" min="0" class="form-control" id="altura" name="altura" required>
             </div>
           </div>
