@@ -190,8 +190,22 @@ a {
   text-align: center;
 }
 
+.avatar-initial {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--admin-primary);
+}
+
 .sidebar-user-avatar {
   border: 3px solid #53e9b9;
+  font-size: 1.4rem;
 }
 
 .sidebar-user strong {
@@ -1027,6 +1041,22 @@ html[data-theme="dark"] .profile-button .avatar-sm {
   body.sidebar-mini .sidebar-nav .nav-link:hover,
   body.sidebar-mini .sidebar-nav .nav-link:focus {
     transform: none;
+  }
+
+  body.sidebar-mini .sidebar-user {
+    margin-inline: 0.75rem;
+    padding: 0.4rem;
+    overflow: hidden;
+  }
+
+  body.sidebar-mini .sidebar-user > div {
+    display: none;
+  }
+
+  body.sidebar-mini .sidebar-user-avatar {
+    width: 40px;
+    height: 40px;
+    font-size: 0.95rem;
   }
 }
 
