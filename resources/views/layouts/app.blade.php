@@ -34,57 +34,81 @@
 
         @if ($tipo === 'aluno')
           <a class="nav-link" href="{{ route('usuarios.show', auth()->id()) }}">
-            <span class="nav-icon"><i class="bi bi-person-circle" aria-hidden="true"></i></span>
+            <span class="nav-icon">
+              <img src="{{ asset('assets/images/png/usuarios.png') }}" alt="Adicionar grupo" width="16" height="16">
+            </span>
             <span class="nav-text">Minha área</span>
           </a>
         @endif
 
         @if (in_array($tipo, ['admin', 'professor']))
           <a class="nav-link" href="{{ route('usuarios.index') }}">
-            <span class="nav-icon"><img src="{{ asset('assets/images/png/add-group.png') }}" alt="Adicionar grupo"></span>
+            <span class="nav-icon">
+              <img src="{{ asset('assets/images/png/usuarios.png') }}" alt="Adicionar grupo" width="16" height="16">
+            </span>
             <span class="nav-text">Usuário</span>
           </a>
           <a class="nav-link" href="{{ route('professores.index') }}">
-            <span class="nav-icon"><i class="bi bi-person-badge" aria-hidden="true"></i></span>
+            <span class="nav-icon">
+              <img src="{{ asset('assets/images/png/professores.png') }}" alt="Professores" width="16" height="16">
+            </span>
             <span class="nav-text">Professores</span>
           </a>
           <a class="nav-link" href="{{ route('exercicios.index') }}">
-            <span class="nav-icon"><img src="{{ asset('assets/images/png/fitness (2).png') }}" alt="Exercícios"></span>
+            <span class="nav-icon">
+              <img src="{{ asset('assets/images/png/exercicios.png') }}" alt="Exercícios" width="16" height="16">
+            </span>
             <span class="nav-text">Exercícios</span>
           </a>
           <a class="nav-link" href="{{ route('fichas-esportivas.index') }}">
-            <span class="nav-icon"><img src="{{ asset('assets/images/png/report (2).png') }}" alt="Relatórios"></span>
+            <span class="nav-icon">
+              <img src="{{ asset('assets/images/png/fichasesportivas.png') }}" alt="Relatórios" width="16" height="16">
+            </span>
             <span class="nav-text">Fichas esportivas  </span>
           </a>
           <a class="nav-link" href="{{ route('avaliacoes.index') }}">
-            <span class="nav-icon"><i class="bi bi-clipboard2-pulse" aria-hidden="true"></i></span>
+            <span class="nav-icon">
+              <img src="{{ asset('assets/images/png/avaliacoes.png') }}" alt="Avaliações" width="16" height="16">
+            </span>
             <span class="nav-text">Avaliações</span>
           </a>
           <a class="nav-link" href="{{ route('treinos.index') }}">
-            <span class="nav-icon"><i class="bi bi-grid-3x3-gap" aria-hidden="true"></i></span>
+            <span class="nav-icon">
+              <img src="{{ asset('assets/images/png/treinos.png') }}" alt="Treinos" width="16" height="16">
+            </span>
             <span class="nav-text">Treinos</span>
           </a>
           <a class="nav-link" href="{{ route('aulas.index') }}">
-            <span class="nav-icon"><i class="bi bi-grid-3x3-gap" aria-hidden="true"></i></span>
+            <span class="nav-icon">
+              <img src="{{ asset('assets/images/png/aulas.png') }}" alt="Aulas" width="16" height="16">
+            </span>
             <span class="nav-text">Aulas</span>
           </a>
         @endif
 
         @if ($tipo === 'admin')
           <a class="nav-link" href="{{ route('profissionais.index') }}">
-            <span class="nav-icon"><img src="{{ asset('assets/images/png/folder (1).png') }}" alt="Pasta"></span>
+            <span class="nav-icon">
+              <img src="{{ asset('assets/images/png/profissionais.png') }}" alt="Pasta" width="16" height="16">
+            </span>
             <span class="nav-text">Profissionais</span>
           </a>
           <a class="nav-link" href="{{ route('planos.index') }}">
-            <span class="nav-icon"><i class="bi bi-bar-chart-line" aria-hidden="true"></i></span>
+            <span class="nav-icon">
+              <img src="{{ asset('assets/images/png/planos.png') }}" alt="Planos" width="16" height="16">
+            </span>
             <span class="nav-text">Planos</span>
           </a>
           <a class="nav-link" href="{{ route('parceiros.index') }}">
-            <span class="nav-icon"><i class="bi bi-table" aria-hidden="true"></i></span>
+            <span class="nav-icon">
+              <img src="{{ asset('assets/images/png/parceiros.png') }}" alt="Parceiros" width="16" height="16">
+            </span>
             <span class="nav-text">Parceiros</span>
           </a>
           <a class="nav-link" href="{{ route('matriculas.index') }}">
-            <span class="nav-icon"><i class="bi bi-ui-checks-grid" aria-hidden="true"></i></span>
+            <span class="nav-icon">
+              <img src="{{ asset('assets/images/png/matriculas.png') }}" alt="Matrículas" width="16" height="16">
+            </span>
             <span class="nav-text">Matrículas</span>
           </a>
         @endif

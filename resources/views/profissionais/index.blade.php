@@ -4,7 +4,12 @@
 <section class="panel mt-3">
   <div class="panel-header">
     <div>
-      <h2 class="h5 mb-1 section-title"><i class="bi bi-people" aria-hidden="true"></i><span>Profissionais</span></h2>
+      <h2 class="h5 mb-1 section-title">
+        <span class="nav-icon">
+          <img src="{{ asset('assets/images/png/profissionais.png') }}" alt="Profissionais" width="16" height="16">
+        </span>
+        <span>Profissionais</span>
+      </h2>
     </div>
     <a class="btn btn-primary btn-sm" href="{{ route('profissionais.create') }}">Novo Profissional</a>
   </div>

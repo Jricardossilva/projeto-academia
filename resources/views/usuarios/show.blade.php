@@ -4,7 +4,12 @@
 <section class="panel mt-3">
   <div class="panel-header">
     <div>
-      <h2 class="h5 mb-1 section-title"><i class="bi bi-person-circle" aria-hidden="true"></i><span>{{ $usuario->nome }}</span></h2>
+      <h2 class="h5 mb-1 section-title">
+        <span class="nav-icon">
+          <img src="{{ asset('assets/images/png/usuarios.png') }}" alt="Usuário" width="16" height="16">
+        </span>
+        <span>{{ $usuario->nome }}</span>
+      </h2>
       <small class="text-muted">{{ $usuario->email }}</small>
     </div>
     @if (in_array(auth()->user()->tipo, ['admin', 'professor']))
@@ -71,7 +76,12 @@
 <section class="panel mt-3">
   <div class="panel-header">
     <div>
-      <h2 class="h5 mb-1 section-title"><i class="bi bi-clipboard2-pulse" aria-hidden="true"></i><span>Histórico de avaliações</span></h2>
+      <h2 class="h5 mb-1 section-title">
+        <span class="nav-icon">
+          <img src="{{ asset('assets/images/png/avaliacoes.png') }}" alt="Avaliações" width="16" height="16">
+        </span>
+        <span>Histórico de avaliações</span>
+      </h2>
     </div>
     @if (in_array(auth()->user()->tipo, ['admin', 'professor']))
       <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#avaliacaoModal" data-usuario-id="{{ $usuario->id }}" data-usuario-nome="{{ $usuario->nome }}">
