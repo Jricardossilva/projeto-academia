@@ -11,10 +11,12 @@ use App\Models\Profissional;
 class UsuarioController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $usuarios = Usuario::all();
-        $profissionais = Profissional::orderBy('nome')->get();        
+        $usuarios = $request->user()->isProfessor()
+            ? Usuario::where('tipo', 'aluno')->get()
+            : Usuario::all();
+        $profissionais = Profissional::orderBy('nome')->get();
         return view('usuarios.index', ['usuarios' => $usuarios, 'profissionais' => $profissionais]);
     }
 
@@ -48,14 +50,12 @@ class UsuarioController extends Controller
     public function show(Request $request, Usuario $usuario)
     {
         $logado = $request->user();
-
         if ($logado->isAluno() && $logado->id !== $usuario->id) {
             abort(403, 'Você só pode visualizar sua própria página.');
         }
-
+        $this->autorizarAcesso($request, $usuario);
         $usuario->load(['fichaEsportiva', 'avaliacoes', 'matriculas.plano']);
         $treinoAtual = $usuario->treinos()->with('exercicios')->latest()->first();
-
         return view('usuarios.show', [
             'usuario' => $usuario,
             'treinoAtual' => $treinoAtual,
@@ -127,43 +127,47 @@ class UsuarioController extends Controller
         ];
     }
 
-    public function edit(Usuario $usuario)
-{
-    return view('usuarios.edit', ['usuario' => $usuario]);
-}
-
-public function update(Request $request, Usuario $usuario)
-{
-    $request->validate([
-        'nome' => 'required|string',
-        'email' => 'required|email|unique:usuarios,email,' . $usuario->id,
-        'cpf' => 'required|unique:usuarios,cpf,' . $usuario->id,
-        'tipo' => 'nullable|in:aluno,professor,admin',
-    ]);
-
-    $dados = [
-        'nome' => $request->nome,
-        'email' => $request->email,
-        'cpf' => $request->cpf,
-    ];
-
-    if ($request->user()->isAdmin() && $request->filled('tipo')) {
-        $dados['tipo'] = $request->tipo;
+    public function edit(Request $request, Usuario $usuario)
+    {
+        $this->autorizarAcesso($request, $usuario);
+        return view('usuarios.edit', ['usuario' => $usuario]);
     }
 
-    if ($request->filled('senha')) {
-        $dados['senha'] = Hash::make($request->senha);
+    public function update(Request $request, Usuario $usuario)
+    {
+        $this->autorizarAcesso($request, $usuario);
+        $request->validate([
+            'nome' => 'required|string',
+            'email' => 'required|email|unique:usuarios,email,' . $usuario->id,
+            'cpf' => 'required|unique:usuarios,cpf,' . $usuario->id,
+            'tipo' => 'nullable|in:aluno,professor,admin',
+        ]);
+        $dados = [
+            'nome' => $request->nome,
+            'email' => $request->email,
+            'cpf' => $request->cpf,
+        ];
+        if ($request->user()->isAdmin() && $request->filled('tipo')) {
+            $dados['tipo'] = $request->tipo;
+        }
+        if ($request->filled('senha')) {
+            $dados['senha'] = Hash::make($request->senha);
+        }
+        $usuario->update($dados);
+        return redirect()->route('usuarios.index')->with('success', 'Usuário atualizado com sucesso!');
     }
 
-    $usuario->update($dados);
+    public function destroy(Request $request, Usuario $usuario)
+    {
+        $this->autorizarAcesso($request, $usuario);
+        $usuario->delete();
+        return redirect()->route('usuarios.index')->with('success', 'Usuário removido com sucesso!');
+    }
 
-    return redirect()->route('usuarios.index')->with('success', 'Usuário atualizado com sucesso!');
-}
-
-public function destroy(Usuario $usuario)
-{
-    $usuario->delete();
-    return redirect()->route('usuarios.index')->with('success', 'Usuário removido com sucesso!');
-}
-    
+    private function autorizarAcesso(Request $request, Usuario $usuario): void
+    {
+        if ($request->user()->isProfessor() && $usuario->tipo !== 'aluno') {
+            abort(403, 'Você só tem acesso a usuários do tipo aluno.');
+        }
+    }
 }
