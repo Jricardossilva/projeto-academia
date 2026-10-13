@@ -7,7 +7,7 @@
     <meta name="description" content="Frosted-glass login form with backdrop blur, floating labels and social sign-in.">
     <meta name="author" content="Aigars Silkalns / Colorlib">
     <link rel="canonical" href="https://preview.colorlib.com/theme/login-forms/forms/glassmorphism/">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%236366f1'/><text x='50' y='68' font-size='60' text-anchor='middle' fill='white' font-family='system-ui,sans-serif'>L</text></svg>">
+    <link rel="icon" type="image/png" href="{{ asset('assets/images/png/logo123.png') }}">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Glassmorphism Login Form">
     <meta property="og:description" content="Frosted-glass login form with backdrop blur, floating labels and social sign-in.">
@@ -63,18 +63,17 @@
             </div>
 
             <div class="social-login">
-                
-                <button type="button" class="social-btn github-btn">
-                    <a href="{{ route('login.show') }}" target="_blank" rel="noopener noreferrer">
-                        <span class="social-icon google-icon"></span>
-                        Google
-                    </a>
-                </button>
-                
+
+                <a href="{{ route('login.show') }}" class="social-btn github-btn" target="_blank" rel="noopener noreferrer">
+                    <img src="{{ asset('assets/images/png/logo123.png') }}" alt="Logo" class="social-icon">
+                    Colaboradores
+                </a>
+
                 <a href="https://github.com/Jricardossilva/projeto-academia" class="social-btn github-btn" target="_blank" rel="noopener noreferrer">
                     <span class="social-icon github-icon"></span>
                     GitHub
                 </a>
+
             </div>
 
             <div class="signup-link">
