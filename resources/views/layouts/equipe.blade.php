@@ -87,7 +87,7 @@
                                     <div class="col-md-4 text-center">
 
                                         <img
-                                            src="{{ asset('images/professor.jpg') }}"
+                                            src="{{ asset('assets/fotos/Jefferson.jpeg') }}"
                                             alt="Foto do professor"
                                             class="rounded-circle img-fluid"
                                             style="
@@ -115,23 +115,12 @@
                                         </span>
 
                                         <h3 class="fw-bold mb-2">
-                                            Nome do Professor
+                                            Jefferson Ricardo
                                         </h3>
 
                                         <p class="text-muted mb-3">
                                             35 anos
                                         </p>
-
-                                        <a
-                                            href="https://www.linkedin.com/"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            class="btn btn-outline-primary"
-                                        >
-                                            <i class="bi bi-linkedin me-1"></i>
-
-                                            LinkedIn
-                                        </a>
 
                                     </div>
 
@@ -172,7 +161,7 @@
                             <div class="card-body p-4">
 
                                 <img
-                                    src="{{ asset('images/desenvolvedor-1.jpg') }}"
+                                    src="{{ asset('assets/fotos/Rafael.jpeg') }}"
                                     alt="Foto do desenvolvedor"
                                     class="rounded-circle mb-3"
                                     style="
@@ -183,23 +172,12 @@
                                 >
 
                                 <h5 class="fw-bold mb-1">
-                                    Nome do Desenvolvedor
+                                    Rafael Silva
                                 </h5>
 
                                 <p class="text-muted small mb-3">
-                                    20 anos
+                                    19 anos
                                 </p>
-
-                                <a
-                                    href="https://www.linkedin.com/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="btn btn-sm btn-outline-primary"
-                                >
-                                    <i class="bi bi-linkedin me-1"></i>
-
-                                    LinkedIn
-                                </a>
 
                             </div>
 
@@ -227,7 +205,7 @@
                             <div class="card-body p-4">
 
                                 <img
-                                    src="{{ asset('images/desenvolvedor-2.jpg') }}"
+                                    src="{{ asset('assets/fotos/Adrian.jpeg') }}"
                                     alt="Foto do desenvolvedor"
                                     class="rounded-circle mb-3"
                                     style="
@@ -238,23 +216,12 @@
                                 >
 
                                 <h5 class="fw-bold mb-1">
-                                    Nome do Desenvolvedor
+                                    Adrian Henrique
                                 </h5>
 
                                 <p class="text-muted small mb-3">
-                                    20 anos
+                                    19 anos
                                 </p>
-
-                                <a
-                                    href="https://www.linkedin.com/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="btn btn-sm btn-outline-primary"
-                                >
-                                    <i class="bi bi-linkedin me-1"></i>
-
-                                    LinkedIn
-                                </a>
 
                             </div>
 
@@ -282,7 +249,7 @@
                             <div class="card-body p-4">
 
                                 <img
-                                    src="{{ asset('images/desenvolvedor-3.jpg') }}"
+                                    src="{{ asset('assets/fotos/Martinho.jpeg') }}"
                                     alt="Foto do desenvolvedor"
                                     class="rounded-circle mb-3"
                                     style="
@@ -293,23 +260,13 @@
                                 >
 
                                 <h5 class="fw-bold mb-1">
-                                    Nome do Desenvolvedor
+                                    Martinho de Albuquerque
                                 </h5>
 
                                 <p class="text-muted small mb-3">
                                     20 anos
                                 </p>
 
-                                <a
-                                    href="https://www.linkedin.com/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="btn btn-sm btn-outline-primary"
-                                >
-                                    <i class="bi bi-linkedin me-1"></i>
-
-                                    LinkedIn
-                                </a>
 
                             </div>
 
@@ -337,7 +294,7 @@
                             <div class="card-body p-4">
 
                                 <img
-                                    src="{{ asset('images/desenvolvedor-4.jpg') }}"
+                                    src="{{ asset('assets/fotos/Isaque.jpeg') }}"
                                     alt="Foto do desenvolvedor"
                                     class="rounded-circle mb-3"
                                     style="
@@ -348,23 +305,12 @@
                                 >
 
                                 <h5 class="fw-bold mb-1">
-                                    Nome do Desenvolvedor
+                                    Isaque Neiva
                                 </h5>
 
                                 <p class="text-muted small mb-3">
-                                    20 anos
+                                    18 anos
                                 </p>
-
-                                <a
-                                    href="https://www.linkedin.com/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="btn btn-sm btn-outline-primary"
-                                >
-                                    <i class="bi bi-linkedin me-1"></i>
-
-                                    LinkedIn
-                                </a>
 
                             </div>
 
