@@ -4,7 +4,12 @@
 <section class="panel mt-3">
   <div class="panel-header">
     <div>
-      <h2 class="h5 mb-1 section-title"><i class="bi bi-people" aria-hidden="true"></i><span>Plano</span></h2>
+      <h2 class="h5 mb-1 section-title">
+        <span class="nav-icon">
+          <img src="{{ asset('assets/images/png/planos.png') }}" alt="Planos" width="16" height="16">
+        </span>
+        <span>Planos</span>
+      </h2>
     </div>
     <a class="btn btn-primary btn-sm" href="{{ route('planos.create') }}">Novo Plano</a>
   </div>

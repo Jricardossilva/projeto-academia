@@ -4,8 +4,14 @@
 <section class="panel mt-3">
   <div class="panel-header">
     <div>
-      <h2 class="h5 mb-0 section-title">Exercícios</h2>
+      <h2 class="h5 mb-1 section-title">
+        <span class="nav-icon">
+          <img src="{{ asset('assets/images/png/exercicios.png') }}" alt="Exercícios" width="16" height="16">
+        </span>
+        <span>Exercícios</span>
+      </h2>
     </div>
+   
     <a class="btn btn-primary btn-sm" href="{{ route('exercicios.create') }}">Novo Exercício</a>
   </div>
   <div class="table-responsive">
