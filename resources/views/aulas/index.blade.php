@@ -11,7 +11,9 @@
         <span>Aulas</span>
       </h2>
     </div>
-    <a class="btn btn-primary btn-sm" href="{{ route('aulas.create') }}">Nova Aula</a>
+    @unless (auth()->user()->isConvidado())
+      <a class="btn btn-primary btn-sm" href="{{ route('aulas.create') }}">Nova Aula</a>
+    @endunless
   </div>
   <div class="table-responsive">
     <table class="table align-middle mb-0">
@@ -30,12 +32,14 @@
             <td>{{ $aula->descricao }}</td>
             <td>{{ $aula->professor->nome ?? 'Não especificado' }}</td>
             <td class="text-end">
+              @unless (auth()->user()->isConvidado())
               <a class="btn btn-light btn-sm" href="{{ route('aulas.edit', $aula) }}">Editar</a>
               <form action="{{ route('aulas.destroy', $aula) }}" method="POST" class="d-inline">
                 @csrf
                 @method('DELETE')
                 <button class="btn btn-outline-secondary btn-sm" onclick="return confirm('Excluir esta aula?')">Excluir</button>
               </form>
+              @endunless
             </td>
           </tr>
         @endforeach

@@ -11,7 +11,9 @@
         <span>Profissionais</span>
       </h2>
     </div>
-    <a class="btn btn-primary btn-sm" href="{{ route('profissionais.create') }}">Novo Profissional</a>
+    @unless (auth()->user()->isConvidado())
+      <a class="btn btn-primary btn-sm" href="{{ route('profissionais.create') }}">Novo Profissional</a>
+    @endunless
   </div>
   <div class="table-responsive">
     <table class="table align-middle mb-0">
@@ -41,12 +43,14 @@
               @endif
             </td>
             <td class="text-end">
+              @unless (auth()->user()->isConvidado())
               <a class="btn btn-light btn-sm" href="{{ route('profissionais.edit', $profissional) }}">Editar</a>
               <form action="{{ route('profissionais.destroy', $profissional) }}" method="POST" class="d-inline">
                 @csrf
                 @method('DELETE')
                 <button class="btn btn-outline-secondary btn-sm" onclick="return confirm('Excluir este profissional?')">Excluir</button>
               </form>
+              @endunless
             </td>
           </tr>
         @endforeach

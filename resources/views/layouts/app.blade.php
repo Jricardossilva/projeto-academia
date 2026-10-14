@@ -41,7 +41,7 @@
           </a>
         @endif
 
-        @if (in_array($tipo, ['admin', 'professor']))
+        @if (in_array($tipo, ['admin', 'professor', 'convidado']))
           <a class="nav-link" href="{{ route('usuarios.index') }}">
             <span class="nav-icon">
               <img src="{{ asset('assets/images/png/usuarios.png') }}" alt="Adicionar grupo" width="16" height="16">
@@ -86,7 +86,7 @@
           </a>
         @endif
 
-        @if ($tipo === 'admin')
+        @if (in_array($tipo, ['admin', 'convidado']))
           <a class="nav-link" href="{{ route('profissionais.index') }}">
             <span class="nav-icon">
               <img src="{{ asset('assets/images/png/profissionais.png') }}" alt="Pasta" width="16" height="16">

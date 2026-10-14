@@ -51,6 +51,7 @@
           <option value="aluno" @selected(old('tipo', 'aluno') == 'aluno')>Aluno</option>
           <option value="professor" @selected(old('tipo') == 'professor')>Professor</option>
           <option value="admin" @selected(old('tipo') == 'admin')>Admin</option>
+          <option value="convidado" @selected(old('tipo') == 'convidado')>Convidado (somente leitura)</option>
         </select>
       </div>
     @endif

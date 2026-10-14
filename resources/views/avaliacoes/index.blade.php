@@ -37,11 +37,13 @@
               @if ($avaliacao->usuario)
                 <a class="btn btn-outline-secondary btn-sm" href="{{ route('usuarios.show', $avaliacao->usuario) }}">Ver histórico</a>
               @endif
+              @unless (auth()->user()->isConvidado())
               <form action="{{ route('avaliacoes.destroy', $avaliacao) }}" method="POST" class="d-inline">
                 @csrf
                 @method('DELETE')
                 <button class="btn btn-outline-secondary btn-sm" onclick="return confirm('Excluir esta avaliação?')">Excluir</button>
               </form>
+              @endunless
             </td>
           </tr>
         @empty

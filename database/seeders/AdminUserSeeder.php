@@ -25,7 +25,7 @@ class AdminUserSeeder extends Seeder
     /**
      * Cria o usuário admin ou, se o e-mail já existir, apenas promove/atualiza a senha.
      */
-    public function criar(string $nome, string $email, string $cpf, string $senha): Usuario
+    public function criar(string $nome, string $email, string $cpf, string $senha, string $tipo = 'admin'): Usuario
     {
         return Usuario::updateOrCreate(
             ['email' => $email],
@@ -34,7 +34,7 @@ class AdminUserSeeder extends Seeder
                 'cpf' => $cpf,
                 'senha' => Hash::make($senha),
                 'aceite_termos' => true,
-                'tipo' => 'admin',
+                'tipo' => $tipo,
             ]
         );
     }
