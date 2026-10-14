@@ -48,6 +48,7 @@
           <option value="aluno" @selected(old('tipo', $usuario->tipo) == 'aluno')>Aluno</option>
           <option value="professor" @selected(old('tipo', $usuario->tipo) == 'professor')>Professor</option>
           <option value="admin" @selected(old('tipo', $usuario->tipo) == 'admin')>Admin</option>
+          <option value="convidado" @selected(old('tipo', $usuario->tipo) == 'convidado')>Convidado (somente leitura)</option>
         </select>
       </div>
     @endif

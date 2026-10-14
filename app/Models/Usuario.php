@@ -64,6 +64,11 @@ class Usuario extends Authenticatable
         return $this->tipo === 'professor';
     }
 
+    public function isConvidado(): bool
+    {
+        return $this->tipo === 'convidado';
+    }
+
     public function isAluno(): bool
     {
         return $this->tipo === 'aluno';

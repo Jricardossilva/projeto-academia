@@ -19,6 +19,7 @@ return Application::configure(basePath: dirname(__DIR__))
                 ? route('usuarios.show', $usuario)
                 : route('usuarios.index');
         });
+        $middleware->appendToGroup('web', \App\Http\Middleware\SomenteLeituraConvidado::class);
         $middleware->alias([
             'role' => \App\Http\Middleware\EnsureUserRole::class,
         ]);

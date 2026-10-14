@@ -11,7 +11,9 @@
         <span>Matriculas</span>
       </h2>
     </div>
-    <a class="btn btn-primary btn-sm" href="{{ route('matriculas.create') }}">Nova Matricula</a>
+    @unless (auth()->user()->isConvidado())
+      <a class="btn btn-primary btn-sm" href="{{ route('matriculas.create') }}">Nova Matricula</a>
+    @endunless
   </div>
   <div class="table-responsive">
 
@@ -33,12 +35,14 @@
             <td>{{ \Carbon\Carbon::parse($matricula->data_inicio)->format('d/m/Y') }}</td>
             <td>{{ \Carbon\Carbon::parse($matricula->data_fim)->format('d/m/Y') }}</td>
             <td class="text-end">
+              @unless (auth()->user()->isConvidado())
               <a class="btn btn-light btn-sm" href="{{ route('matriculas.edit', $matricula) }}">Editar</a>
               <form action="{{ route('matriculas.destroy', $matricula) }}" method="POST" class="d-inline">
                 @csrf
                 @method('DELETE')
                 <button class="btn btn-outline-secondary btn-sm" onclick="return confirm('Excluir esta matrícula?')">Excluir</button>
               </form>
+              @endunless
             </td>
           </tr>
         @endforeach
