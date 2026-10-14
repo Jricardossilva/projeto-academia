@@ -19,6 +19,7 @@
     <meta name="twitter:image" content="https://preview.colorlib.com/theme/login-forms/assets/screenshots/glassmorphism.png">
     <link rel="stylesheet" href="{{ asset('css/login/forms/glassmorphism/style.css') }}">
 </head>
+
 <body>
     <div class="login-container">
         <div class="login-card">
@@ -42,9 +43,9 @@
                     <div class="input-wrapper password-wrapper">
                         <input type="password" id="password" name="password" required autocomplete="current-password">
                         <label for="password">Senha</label>
-                        <button type="button" class="password-toggle" id="passwordToggle" aria-label="Toggle password visibility">
-                            <span class="eye-icon"></span>
-                        </button>
+                           <button type="button" class="password-toggle" id="passwordToggle" aria-label="Mostrar senha">
+                                <span class="eye-icon"></span>
+                            </button>
                         <span class="focus-border"></span>
                     </div>
                     <span class="error-message" id="passwordError"></span>
@@ -87,7 +88,26 @@
             </div>
         </div>
     </div>
+<script>
+document.addEventListener('click', function (e) {
+    var btn = e.target.closest('#passwordToggle');
+    if (!btn) return;
 
+    // impede que o handler do tema rode junto (evitaria alternar duas vezes)
+    e.preventDefault();
+    e.stopPropagation();
+
+    var input = document.getElementById('password');
+    var icon  = btn.querySelector('.eye-icon');
+    if (!input) return;
+
+    var show = input.type === 'password';
+    input.type = show ? 'text' : 'password';
+
+    if (icon) icon.classList.toggle('show-password', show);
+    btn.setAttribute('aria-label', show ? 'Ocultar senha' : 'Mostrar senha');
+}, true); // true = captura o clique antes de qualquer outro script
+</script>
     <script src="{{ asset('js/login/shared/form-utils.js') }}"></script>
     <script src="{{ asset('js/login/forms/glassmorphism/script.js') }}"></script>
 </body>
