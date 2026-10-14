@@ -119,7 +119,7 @@
                                         </h3>
 
                                         <p class="text-muted mb-3">
-                                            35 anos
+                                            28 anos
                                         </p>
 
                                     </div>
