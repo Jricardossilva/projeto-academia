@@ -31,7 +31,7 @@
     <!-- CSS da página Equipe -->
     <link
         rel="stylesheet"
-        href="{{ asset('css/Login/Forms/Equipe Style/equipe.css') }}"
+        href="{{ asset('css/login/forms/equipestyle/equipe.css') }}"
     >
 </head>
 
