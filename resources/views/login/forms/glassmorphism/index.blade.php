@@ -7,7 +7,7 @@
     <meta name="description" content="Frosted-glass login form with backdrop blur, floating labels and social sign-in.">
     <meta name="author" content="Aigars Silkalns / Colorlib">
     <link rel="canonical" href="https://preview.colorlib.com/theme/login-forms/forms/glassmorphism/">
-    <link rel="icon" type="image/png" href="{{ asset('assets/images/png/logo123.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('assets/images/png/logo321.png') }}">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Glassmorphism Login Form">
     <meta property="og:description" content="Frosted-glass login form with backdrop blur, floating labels and social sign-in.">
