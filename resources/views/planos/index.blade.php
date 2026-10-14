@@ -11,7 +11,9 @@
         <span>Planos</span>
       </h2>
     </div>
-    <a class="btn btn-primary btn-sm" href="{{ route('planos.create') }}">Novo Plano</a>
+    @unless (auth()->user()->isConvidado())
+      <a class="btn btn-primary btn-sm" href="{{ route('planos.create') }}">Novo Plano</a>
+    @endunless
   </div>
   <div class="table-responsive">
     <table class="table align-middle mb-0">
@@ -33,12 +35,14 @@
             <td>{{ $plano->ativo ? 'Sim' : 'Não' }}</td>
            
             <td class="text-end">
+              @unless (auth()->user()->isConvidado())
               <a class="btn btn-light btn-sm" href="{{ route('planos.edit', $plano) }}">Editar</a>
               <form action="{{ route('planos.destroy', $plano) }}" method="POST" class="d-inline">
                 @csrf
                 @method('DELETE')
                 <button class="btn btn-outline-secondary btn-sm" onclick="return confirm('Excluir este plano?')">Excluir</button>
               </form>
+              @endunless
             </td>
           </tr>
         @endforeach

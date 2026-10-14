@@ -11,7 +11,9 @@
         <span>Professores</span>
       </h2>
     </div>
-    <a class="btn btn-primary btn-sm" href="{{ route('professores.create') }}">Novo Professor</a>
+    @unless (auth()->user()->isConvidado())
+      <a class="btn btn-primary btn-sm" href="{{ route('professores.create') }}">Novo Professor</a>
+    @endunless
   </div>
   <div class="table-responsive">
     <table class="table align-middle mb-0">
@@ -30,12 +32,14 @@
             <td>{{ $professor->email }}</td>
             <td>{{ $professor->especialidade }}</td>
             <td class="text-end">
+              @unless (auth()->user()->isConvidado())
               <a class="btn btn-light btn-sm" href="{{ route('professores.edit', $professor) }}">Editar</a>
               <form action="{{ route('professores.destroy', $professor) }}" method="POST" class="d-inline">
                 @csrf
                 @method('DELETE')
                 <button class="btn btn-outline-secondary btn-sm" onclick="return confirm('Excluir este professor?')">Excluir</button>
               </form>
+              @endunless
             </td>
           </tr>
         @endforeach

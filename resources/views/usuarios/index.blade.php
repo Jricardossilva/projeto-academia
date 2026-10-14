@@ -49,9 +49,11 @@
             </td>
             <td class="text-end">
               <a class="btn btn-outline-secondary btn-sm" href="{{ route('usuarios.show', $usuario) }}">Ver</a>
+              @unless (auth()->user()->isConvidado())
               <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#avaliacaoModal" data-usuario-id="{{ $usuario->id }}" data-usuario-nome="{{ $usuario->nome }}">
                 <i class="bi bi-clipboard2-pulse" aria-hidden="true"></i> Nova Avaliação
               </button>
+              @endunless
               @if ($tipo_usuario_logado === 'admin')
                 <a class="btn btn-light btn-sm" href="{{ route('usuarios.edit', $usuario) }}">Editar</a>
               

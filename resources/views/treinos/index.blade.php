@@ -11,7 +11,9 @@
         <span>Treinos</span>
       </h2>
     </div>
-    <a class="btn btn-primary btn-sm" href="{{ route('treinos.create') }}">Novo Treino</a>
+    @unless (auth()->user()->isConvidado())
+      <a class="btn btn-primary btn-sm" href="{{ route('treinos.create') }}">Novo Treino</a>
+    @endunless
   </div>
   <div class="table-responsive">
     <table class="table align-middle mb-0">
@@ -36,12 +38,14 @@
               </span>
             </td>
             <td class="text-end">
+              @unless (auth()->user()->isConvidado())
               <a class="btn btn-light btn-sm" href="{{ route('treinos.edit', $treino) }}">Editar</a>
               <form action="{{ route('treinos.destroy', $treino) }}" method="POST" class="d-inline">
                 @csrf
                 @method('DELETE')
                 <button class="btn btn-outline-secondary btn-sm" onclick="return confirm('Excluir este treino?')">Excluir</button>
               </form>
+              @endunless
             </td>
           </tr>
         @endforeach

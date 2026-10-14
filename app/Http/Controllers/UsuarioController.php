@@ -32,7 +32,7 @@ class UsuarioController extends Controller
             'email' => 'required|email|unique:usuarios,email',
             'cpf' => 'required|unique:usuarios,cpf',
             'senha' => 'required|min:6',
-            'tipo' => 'nullable|in:aluno,professor,admin',
+            'tipo' => 'nullable|in:aluno,professor,admin,convidado',
         ]);
 
         Usuario::create([
@@ -140,7 +140,7 @@ class UsuarioController extends Controller
             'nome' => 'required|string',
             'email' => 'required|email|unique:usuarios,email,' . $usuario->id,
             'cpf' => 'required|unique:usuarios,cpf,' . $usuario->id,
-            'tipo' => 'nullable|in:aluno,professor,admin',
+            'tipo' => 'nullable|in:aluno,professor,admin,convidado',
         ]);
         $dados = [
             'nome' => $request->nome,

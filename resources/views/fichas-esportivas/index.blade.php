@@ -11,7 +11,9 @@
         <span>Fichas Esportivas</span>
       </h2>
     </div>
-    <a class="btn btn-primary btn-sm" href="{{ route('fichas-esportivas.create') }}">Nova Ficha</a>
+    @unless (auth()->user()->isConvidado())
+      <a class="btn btn-primary btn-sm" href="{{ route('fichas-esportivas.create') }}">Nova Ficha</a>
+    @endunless
   </div>
   <div class="table-responsive">
   
@@ -37,12 +39,14 @@
             <td>{{ $ficha->frequencia }}</td>
             <td>{{ $ficha->nivel_experiencia }}</td>
             <td class="text-end">
+              @unless (auth()->user()->isConvidado())
               <a class="btn btn-light btn-sm" href="{{ route('fichas-esportivas.edit', $ficha) }}">Editar</a>
               <form action="{{ route('fichas-esportivas.destroy', $ficha) }}" method="POST" class="d-inline">
                 @csrf
                 @method('DELETE')
                 <button class="btn btn-outline-secondary btn-sm" onclick="return confirm('Excluir esta ficha?')">Excluir</button>
               </form>
+              @endunless
             </td>
           </tr>
         @endforeach

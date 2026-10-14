@@ -28,8 +28,8 @@ use App\Http\Controllers\AulaController;
     });
 
 
-// Acesso liberado para admin e professor (gestão de alunos, avaliações, treinos, aulas)
-Route::middleware(['auth', 'role:admin,professor'])->group(function () {
+// Acesso liberado para admin, professor e convidado (convidado = somente leitura, ver SomenteLeituraConvidado) (gestão de alunos, avaliações, treinos, aulas)
+Route::middleware(['auth', 'role:admin,professor,convidado'])->group(function () {
     Route::resource('usuarios', UsuarioController::class)->except(['show']);
     Route::resource('fichas-esportivas', FichaEsportivaController::class)
         ->parameters(['fichas-esportivas' => 'ficha']);
@@ -71,7 +71,7 @@ Route::middleware(['auth', 'role:admin,professor'])->group(function () {
 });
 
 // Acesso restrito ao admin (gestão administrativa/financeira)
-Route::middleware(['auth', 'role:admin'])->group(function () {
+Route::middleware(['auth', 'role:admin,convidado'])->group(function () {
     Route::resource('matriculas', MatriculaController::class)
         ->parameters(['matriculas' => 'matricula']);
         
